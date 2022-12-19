@@ -8,7 +8,7 @@ int maxmark = marks[0];
 foreach(int mark  in marks) //find the GPA
 { 
         summarks += mark;
-    }
+}
 float gpa = (float)summarks / marks.Length; 
 Console.WriteLine(gpa);
 
