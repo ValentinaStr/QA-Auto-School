@@ -1,38 +1,49 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Formats.Asn1;
-int [] marks = { 1, 2, 10, 10, 10, 9, 4, 1, 10, 10 };
-int summarks = 0;
-int minmark = marks[0];
-int maxmark = marks[0];
 
-foreach(int mark  in marks) //find the GPA
-{ 
-        summarks += mark;
-}
-float gpa = (float)summarks / marks.Length; 
-Console.WriteLine(gpa);
-
-foreach(int mark in marks) //find the minimum value
-{ 
-    if (mark <  minmark) minmark = mark; 
-}
-Console.WriteLine(minmark);
-
-foreach(int mark in marks)//find the minimum value
+static float GetAverage(int[] marks) 
 {
-    if(mark > maxmark) maxmark = mark; 
-}
-Console.WriteLine(maxmark);
-
-// try method
-static void MinimumValue (int[] mark, out int resalt, int minmark = 10)
-{  // find the mainimum value
-    foreach (int m in mark)
+    int summarks = 0;  
+    foreach (int mark in marks) 
     {
-        if (m < minmark) minmark = m; 
+        summarks += mark;
     }
-     resalt = minmark;
+    float gpa = (float)summarks / marks.Length;
+    return gpa;
 }
-int maximummark;
-MinimumValue(marks, out maximummark);
-Console.WriteLine(maximummark);
+static int GetMaximumValue(int[] marks) 
+{
+    int maxmark = marks[0];
+    for (int i = 1; i < marks.Length; i++ )
+        if (marks[i] > maxmark) maxmark = marks[i];
+    return maxmark;
+}
+
+static int GetMinimumValue (int[] marks)
+{
+    int minmark = marks[0];
+    for (int i = 1; i < marks.Length; i++)
+        if (marks[i] < minmark) minmark = marks[i];
+    return minmark;
+}
+
+static void AllValue(int[] marks)
+{
+    Console.WriteLine($" Average mark is {GetAverage(marks)}"); 
+    Console.WriteLine($" Maximum mark is {GetMaximumValue(marks)}");
+    Console.WriteLine($" Mimimum mark is {GetMinimumValue(marks)} \n");
+   
+  
+}
+
+int[] people1 = { 10, 10, 0, 10, 6, 8, 8, 3, 2, 4 };
+int[] people2 = { 10, 9, 8, 6, 5, 4, 3, 6, 5, 4, };
+int[] people3 = { 10, 6, 7, 5, 10, 5, 6, 7, 5, 4, };
+int[] people4 = { 9, 8, 6, 7, 5, 4, 1, 2, 3, 4, };
+int[] people5 = { 9, 7, 6, 8, 2, 7, 6, 4, 10, 5 };
+
+AllValue(people1);
+AllValue(people2);
+AllValue(people3);
+AllValue(people4);
+AllValue(people5);
