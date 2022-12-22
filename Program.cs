@@ -61,7 +61,7 @@ foreach (Point point in Points)
     Console.WriteLine(point.GetInfo());
 }
 
-Console.WriteLine(Points[1].GetDistanse(C));
+Console.WriteLine(B.GetDistanse(C));
 
 internal class Point
 {
@@ -81,4 +81,5 @@ internal class Point
     }
 
 }
+
 
