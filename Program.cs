@@ -1,38 +1,84 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Data.SqlTypes;
+using System.Drawing;
 using System.Formats.Asn1;
-int [] marks = { 1, 2, 10, 10, 10, 9, 4, 1, 10, 10 };
-int summarks = 0;
-int minmark = marks[0];
-int maxmark = marks[0];
+using System.Numerics;
 
-foreach(int mark  in marks) //find the GPA
-{ 
-        summarks += mark;
-    }
-float gpa = (float)summarks / marks.Length; 
-Console.WriteLine(gpa);
+Point A = new Point();
+A.Name = 'A';
+A.x = 3;
+A.y = 5;
 
-foreach(int mark in marks) //find the minimum value
-{ 
-    if (mark <  minmark) minmark = mark; 
-}
-Console.WriteLine(minmark);
+Point B = new Point();
+B.Name = 'B';
+B.x = 4;
+B.y = 6;
 
-foreach(int mark in marks)//find the minimum value
+Point C = new Point();
+C.Name = 'C';
+C.x = 5;
+C.y = 7;
+
+Point D = new Point();
+D.Name = 'D';
+D.x = 4;
+D.y = 5;
+
+Point E = new Point();
+E.Name = 'C';
+E.x = 5;
+E.y = 8;
+
+Point F = new Point();
+F.Name = 'F';
+F.x = 9;
+F.y = 1;
+
+Point H = new Point();
+H.Name = 'H';
+H.x = 5;
+H.y = 6;
+
+Point J = new Point();
+J.Name = 'J';
+J.x = 5;
+J.y = 3;
+
+Point I = new Point();
+I.Name = 'I';
+I.x = 4;
+I.y = 5;
+
+Point K = new Point();
+K.Name = 'K';
+K.x = 4;
+K.y = 5;
+
+Point[] Points = { A, B, C, D, E, F, H, J, I, K };
+
+foreach (Point point in Points)
 {
-    if(mark > maxmark) maxmark = mark; 
+    Console.WriteLine(point.GetInfo());
 }
-Console.WriteLine(maxmark);
 
-// try method
-static void MinimumValue (int[] mark, out int resalt, int minmark = 10)
-{  // find the mainimum value
-    foreach (int m in mark)
+Console.WriteLine(Points[1].GetDistanse(C));
+
+internal class Point
+{
+    public char Name;
+    public int x;
+    public int y;
+
+    public string GetInfo()
     {
-        if (m < minmark) minmark = m; 
+        return Name + " (" + x + ";" + y + ")";
     }
-     resalt = minmark;
+
+    public double GetDistanse(Point Second)
+    {
+        double distance = Math.Cbrt(Math.Pow((Second.x - x), 2) + Math.Pow((Second.y - y), 2));
+        return distance;
+    }
+
 }
-int maximummark;
-MinimumValue(marks, out maximummark);
-Console.WriteLine(maximummark);
+
