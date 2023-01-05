@@ -1,19 +1,43 @@
 ﻿
 namespace DataTypesIntro
 {
-	internal class Address
+	public class Address
 	{
-		public string City;
-		public string Street;
-		public int House;
-		public int Flat;
-
-		public Address(string town, string street, int house, int flat)
+		private int _House;
+		private int _Flat;
+		public string City { get; set; }
+		public string Street { get; set; }
+		public int House
+		{
+			get => _House; 
+			set
 			{
-				City = town;
-				this.Street = street;
-				this.House = house;
-				this.Flat = flat;
+				if (value > 0 && value < 10_000)
+				{
+					_House = value;
+				}
 			}
 		}
+		public int Flat
+		{
+			get => _Flat;
+
+		    set
+			{
+				if(value > 0 && value < 1_000)
+				{
+					_Flat = value;
+				}
+			}
+
+		}
+
+		public Address(string town, string street, int house, int flat)
+		{
+			City = town;
+			Street = street;
+			House = house;
+			Flat = flat;
+		}
+	}
 }

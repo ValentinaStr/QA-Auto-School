@@ -1,14 +1,26 @@
 ﻿namespace DataTypesIntro
 {
-	internal class SubjectScore
+	public class SubjectScore
 	{
+		private const int MaxScore = 100;
+		private int _Score;
 		public string Subject { get; set; }
-		public int Score { get; set; }
+		public int Score
+		{
+			get => _Score;
+			set
+			{
+				if (value > 0 && value < MaxScore)
+				{
+					_Score = value;
+				}
+			}
+		}
 
 		public SubjectScore(string subject, int score)
 		{
-			this.Subject = subject;
-			this.Score = score;
+			Subject = subject;
+			Score = score;
 		}
 	}
 }

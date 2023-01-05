@@ -3,26 +3,27 @@ using DataTypesIntro;
 using System.IO;
 
 namespace ArraysNew
-{    
+{
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Candidate candidateFirst = new (new Person("William", "Jordan", new Address("London", "Carnaby Street", 25, 30)),
-                                          new SubjectScore[] {new SubjectScore("Maths", 50), 
-                                            new SubjectScore("Physics", 30),   
+            Candidate candidateFirst = new(new Person("William", "Jordan", new Address("London", "Carnaby Street", 25, 30)),
+                                          new SubjectScore[] {new SubjectScore("Maths", 50),
+                                            new SubjectScore("Physics", 30),
                                             new SubjectScore("Foreign language", 60),
                                             new SubjectScore("Literature", 25),
                                             new SubjectScore("Music", 20)});
 
 
-            Candidate candidateSecond = new (new Person("Liam", "Peters",new Address("London", "Shaftesbury Avenue", 10, 13)),															 {new SubjectScores("Maths", 10),
-                                           new SubjectScore[] { new SubjectScores("Physics", 30),
-			                                 new SubjectScores("Foreign language", 60),
-			                                 new SubjectScores("Literature", 75),
-			                                 new SubjectScores("Music", 80)});
+            Candidate candidateSecond = new(new Person("Liam", "Peters", new Address("London", "Shaftesbury Avenue", 10, 13)),
+                                           new SubjectScore[] { new SubjectScore("Maths", 10),
+                                             new SubjectScore("Physics", 30),
+                                             new SubjectScore("Foreign language", 60),
+                                             new SubjectScore("Literature", 75),
+                                             new SubjectScore("Music", 80)});
 
-            Candidate candidatethird = new (new Person("Maksim", "Ivanov",
+            Candidate candidatethird = new(new Person("Maksim", "Ivanov",
                                            new Address("Minsk", "Zybickaja", 20, 3)),
                                            new SubjectScore[]{new SubjectScore("Maths", 10),
                                              new SubjectScore("Physics", 30),
@@ -30,7 +31,7 @@ namespace ArraysNew
                                              new SubjectScore("Literature", 75),
                                              new SubjectScore("Music", 80)});
 
-            Candidate candidatefourth = new (new Person("Victoria", "Zakharova",
+            Candidate candidatefourth = new(new Person("Victoria", "Zakharova",
                                            new Address("Beijing", "Chang`an", 123, 357)),
                                            new SubjectScore[]{new SubjectScore("Maths", 9),
                                                 new SubjectScore("Physics", 70),
@@ -38,7 +39,7 @@ namespace ArraysNew
                                                 new SubjectScore("Literature", 85),
                                                 new SubjectScore("Music", 87)});
 
-            Candidate candidatefifth = new (new Person("Anna", "Stone",
+            Candidate candidatefifth = new(new Person("Anna", "Stone",
                                            new Address("Minsk", "Pervomaiskaya", 23, 35)),
                                            new SubjectScore[5]{new SubjectScore("Maths", 70),
                                                 new SubjectScore("Physics", 60),
@@ -46,28 +47,35 @@ namespace ArraysNew
                                                 new SubjectScore("Literature", 85),
                                                 new SubjectScore("Music", 87)});
 
-           
-            Candidate [] Allcandidates = new Candidate[]{candidateFirst, candidateSecond,
+
+            Candidate[] Allcandidates = new Candidate[]{candidateFirst, candidateSecond,
                 candidatethird, candidatefourth, candidatefifth};
 
-            foreach (Candidate c in Allcandidates) 
+
+            void getStreet(Candidate[] one)
             {
-                Console.WriteLine(c.Person.Address.Street);
-            
+                foreach (Candidate candidate in one)
+                {
+					 Console.WriteLine(candidate.Person.Address.Street);
+				}
             }
 
+            getStreet(Allcandidates);
 
-            int maxScore = 0;
-            foreach(Candidate candidate in Allcandidates)
+            string NameSabjectMaxScore = "Maths";
+            int MaxScore = 0;
+            foreach (Candidate candidate in Allcandidates)
             {
-                
-                if (candidate.SubjectScore[0].Score > maxScore)
+                foreach (SubjectScore c  in candidate.SubjectScore)
+                {
+                    if (c.Subject == NameSabjectMaxScore &&
+                        c.Score > MaxScore)
                     {
-                    maxScore = candidate.SubjectScore[0].Score;
-                     }
+                        MaxScore = c.Score;
+                    }
+                }
             }
-            Console.WriteLine(maxScore);
-
+            Console.WriteLine(MaxScore);
         }
     }
 }

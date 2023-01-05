@@ -1,14 +1,14 @@
 ﻿namespace DataTypesIntro
 {
-	internal class Candidate
+	public class Candidate
 	{
-		public Person Person;
-		public SubjectScore[] subjectScore;
+		public Person Person { get;  set; }
+		public SubjectScore[] SubjectScore;
 
-		public Candidate(Person person, SubjectScore[] subjectScore)
+		public Candidate(Person person, SubjectScore[] subject_score)
 		{
-			this.Person = person;
-			this.subjectScore = subjectScore;
+			Person = person;
+			SubjectScore = subject_score;
 		}
 	}
 }
