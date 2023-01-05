@@ -41,7 +41,7 @@ namespace ArraysNew
 
             Candidate candidatefifth = new(new Person("Anna", "Stone",
                                            new Address("Minsk", "Pervomaiskaya", 23, 35)),
-                                           new SubjectScore[5]{new SubjectScore("Maths", 70),
+                                           new SubjectScore[5]{new SubjectScore("Maths", 0),
                                                 new SubjectScore("Physics", 60),
                                                 new SubjectScore("Foreign language", 75),
                                                 new SubjectScore("Literature", 85),
@@ -62,20 +62,19 @@ namespace ArraysNew
 
             getStreet(Allcandidates);
 
-            string NameSabjectMaxScore = "Maths";
-            int MaxScore = 0;
+            string SabjectName = "Maths";
+            int MaxScoreSabject = Allcandidates[0].GetMaxScore(SabjectName);
+
             foreach (Candidate candidate in Allcandidates)
             {
-                foreach (SubjectScore c  in candidate.SubjectScore)
+                int Score = candidate.GetMaxScore(SabjectName);
+
+                if (Score > MaxScoreSabject)
                 {
-                    if (c.Subject == NameSabjectMaxScore &&
-                        c.Score > MaxScore)
-                    {
-                        MaxScore = c.Score;
-                    }
+                    MaxScoreSabject = Score;
                 }
             }
-            Console.WriteLine(MaxScore);
+           Console.WriteLine(MaxScoreSabject);
         }
     }
 }
