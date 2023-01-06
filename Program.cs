@@ -73,7 +73,7 @@ internal class Program
         
         string subjectName = "Maths";
         int maxScoreSubject = SubjectScore.MinScore;
-        string candidateLastnameMaxScore = null;
+        string? candidateLastnameMaxScore = null;
         foreach (Candidate candidate in allCandidates)
         {
             int score = candidate.GetScoreSubject(subjectName);
