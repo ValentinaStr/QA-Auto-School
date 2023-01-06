@@ -78,6 +78,6 @@ internal class Program
                 candidateLastnameMaxScore = candidate.Person.LastName;
             }
         }
-        Console.WriteLine(maxScoreSubject + " " + candidateLastnameMaxScore);
+        Console.WriteLine("Max score of " + subjectName + " " + maxScoreSubject + " " + candidateLastnameMaxScore);
     }
 }
