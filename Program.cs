@@ -61,15 +61,10 @@ internal class Program
             candidateFifth
         };
         
-        void GetStreet(Candidate[] one)
+        foreach (Candidate candidate in allCandidates)
         {
-            foreach (Candidate candidate in one)
-            {
                 Console.WriteLine(candidate.GetStreet());
-            }
         }
-        
-        GetStreet(allCandidates);
         
         string subjectName = "Maths";
         int maxScoreSubject = SubjectScore.MinScore;
