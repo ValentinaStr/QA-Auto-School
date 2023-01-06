@@ -11,13 +11,13 @@
             SubjectScore = subject_score;
         }
 
-        public int GetScoreSubject(string sabjectName)
+        public int GetScoreSubject(string subjectName)
         {
-            foreach (SubjectScore SabjectAndScore in SubjectScore)
+            foreach (SubjectScore SubjectAndScore in SubjectScore)
             {
-                if (SabjectAndScore.Subject == sabjectName)
+                if (SubjectAndScore.Subject == subjectName)
                 {
-                    return SabjectAndScore.Score;
+                    return SubjectAndScore.Score;
                 }
             }
             return 0;

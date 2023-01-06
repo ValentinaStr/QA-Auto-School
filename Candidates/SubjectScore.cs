@@ -2,18 +2,18 @@
 {
     public class SubjectScore
     {
-        private const int MaxScore = 100;
+        public const int MaxScore = 100;
         public const int MinScore = 0;
-        private int _Score;
+        private int _score;
         public string Subject { get; set; }
         public int Score
         {
-            get => _Score;
+            get => _score;
             set
             {
-                if (value >= 0 && value <= MaxScore)
+                if (value >= MinScore && value <= MaxScore)
                 {
-                    _Score = value;
+                    _score = value;
                 }
             }
         }

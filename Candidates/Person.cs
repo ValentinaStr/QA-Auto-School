@@ -6,10 +6,10 @@
         public string LastName { get; set; }
         public Address Address { get; set; }
 
-        public Person(string name, string surname, Address address)
+        public Person(string name, string lastname, Address address)
         {
             Name = name;
-            LastName = surname;
+            LastName = lastname;
             Address = address;
         }
 

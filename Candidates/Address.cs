@@ -20,7 +20,6 @@
         public int Flat
         {
             get => _flat;
-
             set
             {
                 if (value > 0 && value < 1_000)
