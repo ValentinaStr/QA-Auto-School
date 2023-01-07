@@ -8,5 +8,13 @@ namespace DataTypesIntro
 {
 	internal class Rectangle
 	{
+		public string Name { get; set; }
+		public Point[] RectanglePoints { get; set; }
+
+		public Rectangle(string name, Point[] rectanglePoints)
+		{
+			Name = name;
+			RectanglePoints = rectanglePoints;
+		}
 	}
 }
