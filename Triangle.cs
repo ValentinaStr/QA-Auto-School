@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataTypesIntro
+﻿namespace DataTypesIntro
 {
-	internal class Triangle
-	{
-		public string Name { get; set; }
-		public Point [] TrianglePoint { get; set; }
 
-		public Triangle(string name, Point[] trianglePoint)
+	internal class Triangle : Figure
+	{
+		public Point[] TriangleApex { get; set; }
+
+		public Triangle(string name, Point[] triangleApex) : base(name)
 		{
-			Name = name;
-			TrianglePoint = trianglePoint;
+			TriangleApex = triangleApex;
 		}
+
+		//First.TriangleApex[0].GetDistanse(First.TriangleApex[1])
 	}
 }

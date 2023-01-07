@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataTypesIntro
 {
-	internal class Rectangle
+	internal class Rectangle: Figure
 	{
-		public string Name { get; set; }
 		public Point[] RectanglePoints { get; set; }
 
-		public Rectangle(string name, Point[] rectanglePoints)
+		public Rectangle(Point[] rectanglePoints, string name) 
+			: base(name)
 		{
-			Name = name;
 			RectanglePoints = rectanglePoints;
 		}
 	}
