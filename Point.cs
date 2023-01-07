@@ -19,4 +19,5 @@ namespace DataTypesIntro
 			PointY = pointY;
 		}
 	}
+
 }
