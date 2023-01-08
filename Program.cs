@@ -1,5 +1,6 @@
 ﻿using DataTypesIntro;
 using System;
+using System.Xml.Linq;
 
 Triangle First = new Triangle("First",
 	new Point[]{
@@ -13,15 +14,22 @@ Circle FirstCircle = new Circle("FirstCircle", 25, new Point(2, 2));
 
 Rectangle FirstRectangle = new Rectangle("FirstRectangle",
 	new Point[]{
-	new Point(-3,-1),
-	new Point(-3,-3),
-	new Point(5,-1),
-	new Point(5,3)
+	new Point(-3,2),
+	new Point(4,2),
+	new Point(4,-2),
+	new Point(-3,-2)
 	}
 );
 
-Console.WriteLine(First.GetAreaOfTriangle());
+Figure[] allFigures = { First, FirstCircle, FirstRectangle};
 
-Console.WriteLine(FirstCircle.GetAreaOfCircle());
 
-Console.WriteLine(FirstRectangle.GetAreaOfRentangle());
+double sumArea = 0;
+foreach (Figure element in allFigures)
+{
+	sumArea += element.GetArea();
+}
+
+Console.WriteLine(sumArea);
+
+//Console.WriteLine(FirstRectangle.GetArea());

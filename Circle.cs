@@ -18,7 +18,7 @@ namespace DataTypesIntro
 			Center = cerner;
 		}
 
-		public double GetAreaOfCircle()
+		public override double GetArea()
 		{
 			return Math.PI * Math.Pow(Radius,2);
 		}

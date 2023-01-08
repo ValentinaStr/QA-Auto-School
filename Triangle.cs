@@ -31,7 +31,7 @@
 		}
 
 		
-		public double GetAreaOfTriangle()
+		public override double GetArea()
 		{
 			double c = ((TriangleApex[1].PointX - TriangleApex[0].PointX) *
 			   (TriangleApex[2].PointY - TriangleApex[0].PointY) -
