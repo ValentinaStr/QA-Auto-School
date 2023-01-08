@@ -20,7 +20,8 @@ namespace DataTypesIntro
 		}
 		public virtual string GetOfficialDuties()
 		{
-			return ($"{EmployeePerson.Name} {EmployeePerson.LastName}");
+			return ($"{EmployeePerson.Name} {EmployeePerson.LastName} works at the university");
+			
 		}
 	}
 }

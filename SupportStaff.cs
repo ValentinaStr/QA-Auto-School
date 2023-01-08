@@ -17,5 +17,11 @@ namespace DataTypesIntro
 			Name = name;
 			Duties = duties;
 		}
+		public override string GetOfficialDuties()
+		{
+			return $"{EmployeePerson.Name} {EmployeePerson.LastName} {Name} {Duties}";
+		}
 	}
+
+
 }
