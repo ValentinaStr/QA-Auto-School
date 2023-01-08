@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace DataTypesIntro
 {
-	internal class Circle
+	internal class Circle : Figure
 	{
-		private int _radius;
-		public int Radius { get { return _radius;} set { _radius = value; } }
-
-		public Circle(int radius)
+		private double _radius;
+		public double Radius { get { return _radius;} set { _radius = value; } }
+		public Point Center { get; set; }
+		
+		public Circle(string name, double radius, Point cerner) : base(name)
 		{
 			Radius = radius;
+			Center = cerner;
 		}
+
+		public double GetAreaOfCircle()
+		{
+			return Math.PI * Math.Pow(Radius,2);
+		}
+
 	}
 }

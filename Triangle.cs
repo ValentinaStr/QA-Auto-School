@@ -30,19 +30,20 @@
 			return firstSide + secondSide + thirdSide;
 		}
 
+		
 		public double GetAreaOfTriangle()
 		{
-			double perimeter = GetPerimetrTriangle();
-			double firstSide = GetSidesFirstLength();
-			double secondSide = GetSidesSecondLength();
-			double thirdSide = GetSidesThirdLength();
-			return Math.Cbrt(perimeter / 2 *
-				 (perimeter / 2 - firstSide) *
-				 (perimeter / 2 - secondSide) *
-				 (perimeter / 2 - thirdSide)
-				 );
-
+			double c = ((TriangleApex[1].PointX - TriangleApex[0].PointX) *
+			   (TriangleApex[2].PointY - TriangleApex[0].PointY) -
+			   (TriangleApex[2].PointX - TriangleApex[0].PointX) *
+			   (TriangleApex[1].PointY - TriangleApex[0].PointY));
+			if (c < 0)
+			{
+				c = c * (-1);
+			};
+			return c / 2;
 		}
 	}
+
 
 }
