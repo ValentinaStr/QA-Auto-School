@@ -18,5 +18,9 @@ namespace DataTypesIntro
 			EmployeePerson = employeePerson;
 			TaxID = taxID;
 		}
+		public virtual string GetOfficialDuties()
+		{
+			return ($"{EmployeePerson.Name} {EmployeePerson.LastName}");
+		}
 	}
 }

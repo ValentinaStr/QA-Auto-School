@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataTypesIntro
 {
-	internal class Teacher : UniversityEmployee
-	{
+	internal class Teacher
+	{ 
 		public Course Course { get; set; }
 
-		public Teacher(employeePerson, taxID, Course course) : base(employeePerson, taxID)
+		public Teacher(Course course) 
 		{
 			Course = course;
 		}
