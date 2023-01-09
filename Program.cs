@@ -1,8 +1,10 @@
-﻿using DataTypesIntro.Candidates;
+﻿using DataTypesIntro;
+using DataTypesIntro.Candidates;
 internal class Program
 {
     private static void Main(string[] args)
     {
+        /*
         Candidate candidateFirst = new(
             new Person("William", "Jordan",
                 new Address("London", "Carnaby Street", 25, 30)),
@@ -85,5 +87,49 @@ internal class Program
             }
         }
         Console.WriteLine($"Max score of {subjectName} {maxScoreSubject} {candidateLastnameMaxScore}");
-    }
+        */
+
+        UniversityEmployee employee1 = new Teacher(
+            new Person("Viktor", "Petrov",
+            new Address("Minsk", "Zybickaja", 20, 3)),
+            123,
+            new Course("Applied Mathematics", "Mathematics"));
+
+        UniversityEmployee employee2 = new DegreeTeacher(
+            new Person("Victoria", "Zakharova",
+            new Address("Beijing", "Chang`an", 123, 357)),
+            321,
+            new Course("macroeconomics", "The whole economy"),
+            "Doctor of Sciences", "Docent");
+
+        UniversityEmployee employee3 = new SupportStaff(
+            new Person("Ivan", "Ivanov",
+            new Address("Minsk", "Zybickaja", 20, 3)),
+            1234,
+            "assistant", "laboratory assistant");
+
+
+
+
+        UniversityEmployee[] allUniversityEmployees = {employee1, employee2, employee3};
+        
+        foreach (UniversityEmployee employee in allUniversityEmployees)
+        {
+            Console.WriteLine(employee.GetOfficialDuties());
+        }
+
+		Console.WriteLine("");
+
+		foreach (UniversityEmployee employee in allUniversityEmployees)
+		{
+            if (employee is Teacher)
+            {
+                Console.WriteLine(employee.GetOfficialDuties());
+            }
+		}
+
+
+
+	}
+
 }

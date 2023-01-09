@@ -1,13 +1,8 @@
 ﻿using DataTypesIntro.Candidates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataTypesIntro
 {
-	internal class UniversityEmployee
+	internal abstract class UniversityEmployee
 	{
 		private int _taxID;
 		public Person EmployeePerson { get; set; }
@@ -18,10 +13,6 @@ namespace DataTypesIntro
 			EmployeePerson = employeePerson;
 			TaxID = taxID;
 		}
-		public virtual string GetOfficialDuties()
-		{
-			return ($"{EmployeePerson.Name} {EmployeePerson.LastName} works at the university");
-			
-		}
+		public abstract string GetOfficialDuties();
 	}
 }

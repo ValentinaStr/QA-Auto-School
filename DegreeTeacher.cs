@@ -1,9 +1,4 @@
 ﻿using DataTypesIntro.Candidates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataTypesIntro
 {
@@ -12,8 +7,8 @@ namespace DataTypesIntro
 		public string Degree { get; set; }
 		public string Title { get; set; }
 
-		public DegreeTeacher(string degree, string title, Course courseName, Person employeePerson, int taxID) :
-			base(courseName, employeePerson, taxID)
+		public DegreeTeacher(Person employeePerson, int taxID, Course courseName, string degree, string title) :
+			base( employeePerson, taxID, courseName)
 		{
 			Degree = degree;
 			Title = title;
@@ -21,7 +16,7 @@ namespace DataTypesIntro
 
 		public override string GetOfficialDuties()
 		{
-			return $"{EmployeePerson.Name} {EmployeePerson.LastName} scientific degree: {Degree} teacher title is {Title}, course: {CourseName}";
+			return $"{EmployeePerson.Name} {EmployeePerson.LastName} scientific degree: {Degree} teacher title is {Title}, course: {CourseName.Name}";
 		}
 
 	}
