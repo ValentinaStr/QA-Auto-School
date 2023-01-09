@@ -4,7 +4,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        /*
         Candidate candidateFirst = new(
             new Person("William", "Jordan",
                 new Address("London", "Carnaby Street", 25, 30)),
@@ -87,7 +86,6 @@ internal class Program
             }
         }
         Console.WriteLine($"Max score of {subjectName} {maxScoreSubject} {candidateLastnameMaxScore}");
-        */
 
         UniversityEmployee employee1 = new Teacher(
             new Person("Viktor", "Petrov",
@@ -99,26 +97,29 @@ internal class Program
             new Person("Victoria", "Zakharova",
                 new Address("Beijing", "Chang`an", 123, 357)),
             321,
-            new Course("macroeconomics", "The whole economy"),
-            "Doctor of Sciences", "Docent");
+            new Course("Macroeconomics", "The whole economy"),
+            "Doctor of Sciences",
+            "Docent");
 
         UniversityEmployee employee3 = new SupportStaff(
             new Person("Ivan", "Ivanov",
                 new Address("Minsk", "Zybickaja", 20, 3)),
             1234,
-            "assistant", "laboratory assistant");
+            "assistant",
+            "laboratory assistant");
 
         UniversityEmployee employee4 = new Teacher(
             new Person("Nik", "Peters",
                 new Address("Minsk", "Pervomaiskaya", 23, 35)),
             00123,
-            new Course("QA automation", "Use of automated testing tools"));
+            new Course("QA automation","Use of automated testing tools"));
 
 		UniversityEmployee employee5 = new SupportStaff(
 		   new Person("Maria", "Ivanova",
-		   new Address("London", "Carnaby Street", 25, 30)),
+                new Address("London", "Carnaby Street", 25, 30)),
 		   654789,
-		   "Accountant", "payroll accountant");
+		   "Accountant",
+           "payroll accountant");
 
 		UniversityEmployee[] allUniversityEmployees = {employee1, employee2, employee3, employee4, employee5 };
         
@@ -136,9 +137,5 @@ internal class Program
                 Console.WriteLine(employee.GetOfficialDuties());
             }
 		}
-
-
-
 	}
-
 }

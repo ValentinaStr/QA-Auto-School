@@ -4,7 +4,6 @@ namespace DataTypesIntro
 {
 	internal class SupportStaff : UniversityEmployee
 	{
-
 		public string Name { get; set; }
 		public string Duties { get; set; }
 
@@ -18,6 +17,4 @@ namespace DataTypesIntro
 			return $"{EmployeePerson.Name} {EmployeePerson.LastName} {Name} {Duties}";
 		}
 	}
-
-
 }
