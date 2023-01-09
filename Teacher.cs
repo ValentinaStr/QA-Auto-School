@@ -3,7 +3,7 @@
 namespace DataTypesIntro
 {
 	internal class Teacher : UniversityEmployee
-	{ 
+	{
 		public Course CourseName { get; set; }
 
 		public Teacher(Person employeePerson, int taxID, Course courseName) : base(employeePerson, taxID)
