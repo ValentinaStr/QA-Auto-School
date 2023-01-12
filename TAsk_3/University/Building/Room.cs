@@ -1,6 +1,6 @@
 ﻿namespace Task_3
 {
-	internal class Room
+	public class Room
 	{
 		public  int Numder { get; set; }
 		public string Name { get; set; }

@@ -1,9 +1,6 @@
-﻿using DataTypesIntro;
-using DataTypesIntro.Candidates;
-
-namespace DataTypesIntro
+﻿namespace Task_3
 {
-	internal abstract class UniversityEmployee
+	public abstract class UniversityEmployee
 	{
 		public Person EmployeePerson { get; set; }
 		public int TaxID { get; set; }

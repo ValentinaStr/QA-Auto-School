@@ -1,6 +1,6 @@
-﻿namespace DataTypesIntro.Candidates
-{
-    public class Address
+﻿namespace Task_3
+{ 
+	public class Address
     {
         private int _house;
         private int _flat;

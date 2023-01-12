@@ -1,4 +1,4 @@
-﻿namespace DataTypesIntro.Candidates
+﻿namespace Task_3
 {
     public class Person
     {

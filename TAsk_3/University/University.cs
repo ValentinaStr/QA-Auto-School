@@ -1,14 +1,11 @@
-﻿using DataTypesIntro;
-using DataTypesIntro.Candidates;
-
-namespace Task_3
+﻿namespace Task_3
 {
-	internal class University
+	public class University
 	{
 		internal Person Rector { get; set; }
-		internal UniversityEmployee[] AllUniversityEmployees { get; set; }
-		internal Building[] Allbuildings { get; set; }
-		public University(Person rector, UniversityEmployee[] allUniversityEmployees, Building[] allbuildings)
+		internal List<UniversityEmployee> AllUniversityEmployees { get; set; }
+		internal List<Building> Allbuildings { get; set; }
+		public University(Person rector, List<UniversityEmployee> allUniversityEmployees, List<Building> allbuildings)
 		{
 			Rector = rector;
 			AllUniversityEmployees = allUniversityEmployees;

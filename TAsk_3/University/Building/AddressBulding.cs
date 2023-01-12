@@ -1,6 +1,6 @@
 ﻿namespace Task_3
 {
-	internal class AddressBulding
+	public class AddressBulding
 	{
 		private int _house;
 		public string City { get; set; }
