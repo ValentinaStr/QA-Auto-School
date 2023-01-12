@@ -1,6 +1,4 @@
-﻿using DataTypesIntro.Candidates;
-
-namespace DataTypesIntro
+﻿namespace University
 {
 	internal class Teacher : UniversityEmployee
 	{

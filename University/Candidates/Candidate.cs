@@ -1,6 +1,7 @@
-﻿namespace DataTypesIntro.Candidates
-{
-    public class Candidate
+﻿namespace University
+{ 
+
+	public class Candidate
     {
         public Person Person { get; set; }
         public SubjectScore[] SubjectScore { get; set; }

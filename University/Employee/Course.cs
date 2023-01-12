@@ -1,6 +1,6 @@
 ﻿
-namespace DataTypesIntro
-{
+namespace University
+{ 
 	internal class Course
 	{
 		public string Name { get; set; }

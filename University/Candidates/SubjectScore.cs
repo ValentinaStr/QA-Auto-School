@@ -1,4 +1,4 @@
-﻿namespace DataTypesIntro.Candidates
+﻿namespace University
 {
     public class SubjectScore
     {
