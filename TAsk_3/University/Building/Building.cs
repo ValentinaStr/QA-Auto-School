@@ -14,5 +14,15 @@
 			Rooms = rooms;
 			AddressBulding = addressBulding;
 		}
+
+		public override bool Equals(object? obj)
+		{
+			if( obj is Building)
+			{
+				Building? building = obj as Building;
+				return building.Number.Equals(Number);
+			}
+			return false;
+		}
 	}
 }

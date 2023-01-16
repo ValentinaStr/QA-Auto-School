@@ -11,5 +11,27 @@
 			AllUniversityEmployees = allUniversityEmployees;
 			Allbuildings = allbuildings;
 		}
+
+		/*public bool AddEmployee(List<UniversityEmployee> AllUniversityEmployees, UniversityEmployee newEmployee)
+		{
+			foreach (UniversityEmployee employee in AllUniversityEmployees) 
+			{
+				if (employee.Equals(newEmployee))
+				{
+					return false;
+				}				
+			}
+			AllUniversityEmployees.Add(newEmployee);
+			return true;
+		}*/
+
+		public bool AddSame<T>(List<T> items, T itemsToChek)
+		{ 
+			foreach (T item in items)
+			{
+				if(item.Equals(itemsToChek)) return false;
+			}
+			items.Add(itemsToChek); return true;
+		}
 	}
 }

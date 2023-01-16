@@ -59,11 +59,13 @@ internal class Program
 			"Doctor of Charms",
 			"Professor");
 
+			List <UniversityEmployee> allUniversityEmployees = new List<UniversityEmployee>() {deanOfSlytherin, deanOfGryffindor, deanHufflepuff};
 
-			List <UniversityEmployee> allUniversityEmployees = new List<UniversityEmployee>() {deanOfSlytherin, deanOfGryffindor, deanHufflepuff, deanRavenclaw};
+		University hogwarts = new University(new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
+			allUniversityEmployees, allBuilding);
 
+		hogwarts.AddUnique(allUniversityEmployees, deanRavenclaw);
+		hogwarts.AddUnique(allBuilding, hufflepuffTower);
 
-
-			Console.WriteLine(deanOfSlytherin.EmployeePerson.Name);
 		}
 	}

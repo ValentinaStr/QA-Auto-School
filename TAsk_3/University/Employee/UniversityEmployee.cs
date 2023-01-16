@@ -11,5 +11,15 @@
 			TaxID = taxID;
 		}
 		public abstract string GetOfficialDuties();
+
+		public override bool Equals(object? obj)
+		{
+			if (obj is UniversityEmployee)
+			{
+				UniversityEmployee? employee = obj as UniversityEmployee;
+				return employee.TaxID.Equals(TaxID);
+			}
+			return false;
+		}
 	}
 }
