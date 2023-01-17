@@ -4,19 +4,19 @@ internal class Program
 {
 	static void Main(string[] args)
 	{
-		Building theMainBuilding = new (1,
+		Building theMainBuilding = new(1,
 			"Main building",
 			new List<Room>() { new Room(1, "Rector's office"), new Room(2, "Admissions team"), new Room(3, "Library"), new Room(4, "Great Hall") },
 			new AddressBulding("Oxford", "St. Aldates", 22)
 			);
 
-		Building gryffindorTower = new (2,
+		Building gryffindorTower = new(2,
 			"Gryffindor Tower",
 			new List<Room>() { new Room(2, "Library"), new Room(3, "Common Room"), new Room(4, "Girls' bedroom"), new Room(5, "Boys' bedroom") },
 			new AddressBulding("Oxford", "St. Aldates", 23)
 			);
 
-		Building slytherinTower = new (3,
+		Building slytherinTower = new(3,
 			"Slytherin dungeons",
 			new List<Room>() { new Room(2, "Library"), new Room(3, "Common Room"), new Room(4, "Girls' bedroom"), new Room(5, "Boys' bedroom") },
 			new AddressBulding("Oxford", "St. Aldates", 24)
@@ -34,7 +34,7 @@ internal class Program
 			new AddressBulding("Oxford", "St. Aldates", 26)
 			);
 
-		List<Building> allBuilding = new List<Building>() { theMainBuilding, gryffindorTower, slytherinTower };
+		List<Building> allBuilding = new() { theMainBuilding, gryffindorTower, slytherinTower };
 
 		UniversityEmployee deanOfSlytherin = new Teacher(new Person("Severus", "Snape",
 			new Address("London", "St. Aldates", 24, 1)),
@@ -59,13 +59,12 @@ internal class Program
 			"Doctor of Charms",
 			"Professor");
 
-			List <UniversityEmployee> allUniversityEmployees = new List<UniversityEmployee>() {deanOfSlytherin, deanOfGryffindor, deanHufflepuff};
+			List <UniversityEmployee> allUniversityEmployees = new () {deanOfSlytherin, deanOfGryffindor, deanHufflepuff};
 
-		University hogwarts = new University(new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
+		University hogwarts = new (new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
 			allUniversityEmployees, allBuilding);
 
-		hogwarts.AddUnique(allUniversityEmployees, deanRavenclaw);
-		hogwarts.AddUnique(allBuilding, hufflepuffTower);
-
-		}
+		University.AddUnique(allUniversityEmployees, deanRavenclaw);
+		University.AddUnique(allBuilding, hufflepuffTower);	
 	}
+}

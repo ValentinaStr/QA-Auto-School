@@ -1,4 +1,6 @@
-﻿namespace Task_3
+﻿using System.Xml.Linq;
+
+namespace Task_3
 {
 	public abstract class UniversityEmployee
 	{
@@ -17,9 +19,13 @@
 			if (obj is UniversityEmployee)
 			{
 				UniversityEmployee? employee = obj as UniversityEmployee;
-				return employee.TaxID.Equals(TaxID);
+				if (employee != null)
+				{
+					return employee.TaxID.Equals(TaxID);
+				}
 			}
-			return false;
+		 return false;
 		}
+		public override int GetHashCode() => TaxID.GetHashCode();
 	}
 }

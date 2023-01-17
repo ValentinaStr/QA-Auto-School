@@ -17,12 +17,16 @@
 
 		public override bool Equals(object? obj)
 		{
-			if( obj is Building)
+			if(obj is Building)
 			{
 				Building? building = obj as Building;
-				return building.Number.Equals(Number);
+				if (building != null)
+				{
+					return building.Number.Equals(Number);
+				}
 			}
 			return false;
 		}
+		public override int GetHashCode() => Number.GetHashCode();
 	}
 }
