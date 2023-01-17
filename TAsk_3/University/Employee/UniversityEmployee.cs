@@ -16,16 +16,14 @@ namespace Task_3
 
 		public override bool Equals(object? obj)
 		{
-			if (obj is UniversityEmployee)
+			UniversityEmployee? employee = obj as UniversityEmployee;
+
+			if (employee != null)
 			{
-				UniversityEmployee? employee = obj as UniversityEmployee;
-				if (employee != null)
-				{
-					return employee.TaxID.Equals(TaxID);
-				}
+				return employee.TaxID == TaxID;
 			}
-		 return false;
+			return false;
 		}
-		public override int GetHashCode() => TaxID.GetHashCode();
+		
 	}
 }

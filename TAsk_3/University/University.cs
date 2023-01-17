@@ -10,15 +10,18 @@
 			Rector = rector;
 			AllUniversityEmployees = allUniversityEmployees;
 			Allbuildings = allbuildings;
-		}
-		
+		}		
 		public static bool AddUnique<T>(List<T> items, T itemsToChek)
 		{ 
 			foreach (T item in items)
 			{
-				if(item!=null && item.Equals(itemsToChek)) return false;
+				if (item != null && !item.Equals(itemsToChek))
+				{
+					items.Add(itemsToChek);
+					return true;
+				}
 			}
-			items.Add(itemsToChek); return true;
+			return false;
 		}
 	}
 }

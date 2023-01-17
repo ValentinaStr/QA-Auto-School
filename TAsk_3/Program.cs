@@ -65,6 +65,7 @@ internal class Program
 			allUniversityEmployees, allBuilding);
 
 		University.AddUnique(allUniversityEmployees, deanRavenclaw);
-		University.AddUnique(allBuilding, hufflepuffTower);	
+		University.AddUnique(allBuilding, hufflepuffTower);
+
 	}
 }
