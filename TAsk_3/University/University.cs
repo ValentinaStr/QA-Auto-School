@@ -11,17 +11,32 @@
 			AllUniversityEmployees = allUniversityEmployees;
 			Allbuildings = allbuildings;
 		}		
-		public static bool AddUnique<T>(List<T> items, T itemsToChek)
-		{ 
-			foreach (T item in items)
+		
+		public bool AddEmployee(UniversityEmployee employeeToAdd)
+		{
+			foreach (var employee in AllUniversityEmployees)
 			{
-				if (item != null && !item.Equals(itemsToChek))
+				if (employeeToAdd.Equals(employee))
 				{
-					items.Add(itemsToChek);
-					return true;
+					return false;
 				}
 			}
-			return false;
+			AllUniversityEmployees.Add(employeeToAdd);
+			return true;
 		}
+
+		public bool AddBuilding(Building buildingToAdd)
+		{
+			foreach (var building in AllUniversityEmployees)
+			{
+				if (buildingToAdd.Equals(building))
+				{
+					return false;
+				}
+			}
+			Allbuildings.Add(buildingToAdd);
+			return true;
+		}
+		
 	}
 }

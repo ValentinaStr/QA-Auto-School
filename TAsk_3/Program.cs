@@ -63,10 +63,9 @@ internal class Program
 
 		University hogwarts = new (new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
 			allUniversityEmployees, allBuilding);
-
 		
-		University.AddUnique(allUniversityEmployees, deanRavenclaw);
-		University.AddUnique(allBuilding, hufflepuffTower);
-
+		hogwarts.AddEmployee(deanHufflepuff);
+		hogwarts.AddBuilding(hufflepuffTower);
+				
 	}
 }
