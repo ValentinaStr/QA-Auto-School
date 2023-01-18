@@ -37,6 +37,19 @@
 			Allbuildings.Add(buildingToAdd);
 			return true;
 		}
-		
+
+		/*public static bool AddUnique<T>(List<T> items, T itemsToChek)
+		{
+			foreach (T item in items)
+			{
+				if (item != null && !item.Equals(itemsToChek))
+				{
+					items.Add(itemsToChek);
+					return true;
+				}
+			}
+			return false;
+		}*/
+
 	}
 }
