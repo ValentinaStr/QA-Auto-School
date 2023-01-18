@@ -5,7 +5,7 @@
 		private int _house;
 		public string City { get; set; }
 		public string Street { get; set; }
-		public int House
+		public int HouseNumber
 		{
 			get => _house;
 			set
@@ -16,12 +16,13 @@
 				}
 			}
 		}
-		public AddressBulding(string town, string street, int house)
+		public AddressBulding(string town, string street, int houseNumber)
 		{
 			City = town;
 			Street = street;
-			House = house;
+			HouseNumber = houseNumber;
 		}
+
 	}
 		
 }

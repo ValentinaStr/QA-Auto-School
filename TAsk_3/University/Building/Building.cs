@@ -20,21 +20,23 @@
 			Building? building = obj as Building;
 			if (building != null)
 			{
-				return building.NumberBuilding == NumberBuilding;
+				return building.AddressBulding.City.Equals(AddressBulding.City) &&
+					building.AddressBulding.Street.Equals(AddressBulding.Street) &&
+					building.AddressBulding.HouseNumber.Equals(AddressBulding.HouseNumber);
 			}
 			return false;
 		}
 
 		public bool AddRoom(Room roomToAdd)
 		{
-			foreach (var building in Rooms)
+			foreach (var room in Rooms)
 			{
-				if (roomToAdd.Equals(building))
+				if (roomToAdd.Equals(room))
 				{
 					return false;
 				}
 			}
-			Allbuildings.Add(roomToAdd);
+			Rooms.Add(roomToAdd);
 			return true;
 		}
 
