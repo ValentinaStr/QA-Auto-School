@@ -23,8 +23,9 @@
 				return building.AddressBulding.City.Equals(AddressBulding.City) &&
 					building.AddressBulding.Street.Equals(AddressBulding.Street) &&
 					building.AddressBulding.HouseNumber.Equals(AddressBulding.HouseNumber);
+				return false;
 			}
-			return false;
+			return true;
 		}
 
 		public bool AddRoom(Room roomToAdd)

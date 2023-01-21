@@ -34,7 +34,7 @@ internal class Program
 			new AddressBulding("Oxford", "St. Aldates", 26)
 			);
 
-		List<Building> allBuilding = new() { theMainBuilding, gryffindorTower, slytherinTower };
+		List<Building> allBuilding = new() { theMainBuilding, gryffindorTower, slytherinTower, ravenclawTower, hufflepuffTower };
 
 		UniversityEmployee deanOfSlytherin = new Teacher(new Person("Severus", "Snape",
 			new Address("London", "St. Aldates", 24, 1)),
@@ -66,6 +66,7 @@ internal class Program
 		
 		hogwarts.AddEmployee(deanHufflepuff);
 		hogwarts.AddBuilding(hufflepuffTower);
-				
+
+		Console.WriteLine(allBuilding.Count);
 	}
 }
