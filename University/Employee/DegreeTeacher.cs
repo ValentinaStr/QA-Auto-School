@@ -1,6 +1,8 @@
-﻿namespace University
+﻿using University.Candidates;
+
+namespace University.Employee
 {
-	internal class DegreeTeacher : Teacher
+	public class DegreeTeacher : Teacher
 	{
 		public string Degree { get; set; }
 		public string Title { get; set; }

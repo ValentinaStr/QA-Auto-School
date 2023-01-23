@@ -1,4 +1,4 @@
-﻿namespace University
+﻿namespace University.Candidates
 {
     public class Address
     {

@@ -1,7 +1,8 @@
-﻿
-namespace University
+﻿using University.Candidates;
+
+namespace University.Employee
 { 
-	internal class Course
+	public class Course
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }

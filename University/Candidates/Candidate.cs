@@ -1,6 +1,5 @@
-﻿namespace University
+﻿namespace University.Candidates
 { 
-
 	public class Candidate
     {
         public Person Person { get; set; }

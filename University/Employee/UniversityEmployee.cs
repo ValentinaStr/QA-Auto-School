@@ -1,6 +1,8 @@
-﻿namespace University
+﻿using University.Candidates;
+
+namespace University.Employee
 {
-	internal abstract class UniversityEmployee
+	public abstract class UniversityEmployee
 	{
 		public Person EmployeePerson { get; set; }
 		public int TaxID { get; set; }
