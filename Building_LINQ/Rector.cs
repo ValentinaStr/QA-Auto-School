@@ -11,7 +11,7 @@ namespace Building_LINQ
 		}
 		public override string GetOfficialDuties()
 		{
-			return $"{EmployeePerson.Name}{EmployeePerson.LastName}";
+			return $"Rector of the University {EmployeePerson.Name}{EmployeePerson.LastName}";
 		}
 	}
 
