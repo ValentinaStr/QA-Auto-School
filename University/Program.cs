@@ -89,41 +89,51 @@ namespace University
 			}
 			Console.WriteLine($"Max score of {subjectName} {maxScoreSubject} {candidateLastnameMaxScore}");
 
-			UniversityEmployee employee1 = new Teacher(
-				new Person("Viktor", "Petrov",
-					new Address("Minsk", "Zybickaja", 20, 3)),
-				123,
-				new Course("Applied Mathematics", "Mathematics"));
+			UniversityEmployee deanOfSlytherin = new Teacher(
+				new Person("Severus", "Snape",
+					new Address("London", "St. Aldates", 24, 1)),
+				124456789,
+				new Course("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
 
-			UniversityEmployee employee2 = new DegreeTeacher(
-				new Person("Victoria", "Zakharova",
-					new Address("Beijing", "Chang`an", 123, 357)),
-				321,
-				new Course("Macroeconomics", "The whole economy"),
-				"Doctor of Sciences",
-				"Docent");
+			UniversityEmployee deanOfGryffindor = new DegreeTeacher(
+				new Person("Minerva", "McGonagall",
+					new Address("London", "St. Aldates", 23, 1)),
+				114567891,
+				new Course("Transfiguration", "Studies magical ways to transform one object into another"),
+				"Doctor of Transfiguration",
+				"Professor");
 
+			UniversityEmployee deanHufflepuff = new DegreeTeacher(
+				new Person("Pomona", "Sprout",
+					new Address("London", "St. Aldates", 26, 1)),
+				122456789,
+				new Course("Herbology", "Study of various plants"),
+				"Doktor of Herbology",
+				"Professor");
+
+			UniversityEmployee deanRavenclaw = new DegreeTeacher(
+				new Person("Filius", "Flitwick",
+					new Address("London", "St. Aldates", 25, 1)),
+				102569877,
+				new Course("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
+				"Doctor of Charms",
+				"Professor");
+			
 			UniversityEmployee employee3 = new SupportStaff(
-				new Person("Ivan", "Ivanov",
-					new Address("Minsk", "Zybickaja", 20, 3)),
+				new Person("Bloody", "Baron",
+					new Address("Oxford", "St. Aldates", 24, 65)),
 				1234,
-				"assistant",
-				"laboratory assistant");
-
-			UniversityEmployee employee4 = new Teacher(
-				new Person("Nik", "Peters",
-					new Address("Minsk", "Pervomaiskaya", 23, 35)),
-				00123,
-				new Course("QA automation", "Use of automated testing tools"));
-
+				"Ghost",
+				"Ghost of Slytherin");
+						
 			UniversityEmployee employee5 = new SupportStaff(
-			   new Person("Maria", "Ivanova",
-					new Address("London", "Carnaby Street", 25, 30)),
+			   new Person("Sir Nicholas", "Mimsy-Porpington",
+					new Address("Oxford", "St. Aldates", 23, 66)),
 			   654789,
-			   "Accountant",
-			   "payroll accountant");
+			   "Ghost",
+			   "Ghost of Gryffindor");
 
-			UniversityEmployee[] allUniversityEmployees = { employee1, employee2, employee3, employee4, employee5 };
+			UniversityEmployee[] allUniversityEmployees = {deanOfSlytherin, deanOfGryffindor, employee3, deanHufflepuff, employee5, deanRavenclaw };
 
 			foreach (UniversityEmployee employee in allUniversityEmployees)
 			{
