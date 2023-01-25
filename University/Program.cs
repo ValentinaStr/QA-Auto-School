@@ -8,58 +8,58 @@ namespace University
 		static void Main(string[] args)
 		{
 			Candidate candidateFirst = new(
-			new Person("William", "Jordan",
-				new Address("London", "Carnaby Street", 25, 30)),
+				new Person("Harry", "Potter",
+					new Address("Bracknell", "Picket Post Close", 12, 1)),
 				new SubjectScore[] {
-				new SubjectScore("Maths", 50),
-				new SubjectScore("Physics", 30),
-				new SubjectScore("Foreign language", 60),
-				new SubjectScore("Literature", 25),
-				new SubjectScore("Music", 20)
-				}
+					new SubjectScore("Astronomy", 50),
+					new SubjectScore("Potions", 30),
+					new SubjectScore("Transfiguration", 60),
+					new SubjectScore("Flying", 25),
+					new SubjectScore("Music", 20)
+					}
 			);
 			Candidate candidateSecond = new(
-				new Person("Liam", "Peters",
-					new Address("London", "Shaftesbury Avenue", 10, 13)),
-					new SubjectScore[] {
-				new SubjectScore("Maths", 10),
-				new SubjectScore("Physics", 30),
-				new SubjectScore("Foreign language", 60),
-				new SubjectScore("Literature", 75),
-				new SubjectScore("Music", 80)
+				new Person("Ronald", "Weasley",
+					new Address("Ottery St Catchpole", "The Burrow", 1, 1)),
+				new SubjectScore[] {
+					new SubjectScore("Astronomy", 10),
+					new SubjectScore("Potions", 30),
+					new SubjectScore("Transfiguration", 60),
+					new SubjectScore("Flying", 75),
+					new SubjectScore("Music", 80)
 					}
 			);
 			Candidate candidateThird = new(
-			new Person("Maksim", "Ivanov",
-				new Address("Minsk", "Zybickaja", 20, 3)),
+				new Person("Draco", "Malfoy",
+					new Address("Wiltshire", "Malfoy Manor", 1, 3)),
 				new SubjectScore[]{
-				new SubjectScore("Maths", 10),
-				new SubjectScore("Physics", 30),
-				new SubjectScore("Foreign language", 60),
-				new SubjectScore("Music", 80)
-				}
+					new SubjectScore("Astronomy", 10),
+					new SubjectScore("Potions", 30),
+					new SubjectScore("Transfiguration", 60),
+					new SubjectScore("Charms", 80)
+					}
 			);
 			Candidate candidateFourth = new(
-				new Person("Victoria", "Zakharova",
-					new Address("Beijing", "Chang`an", 123, 357)),
-					new SubjectScore[]{
-				new SubjectScore("Maths", 90),
-				new SubjectScore("Physics", 70),
-				new SubjectScore("Foreign language", 95),
-				new SubjectScore("Literature", 85),
-				new SubjectScore("Music", 87)
+				new Person("Hermione", "Granger",
+					new Address("Hampstead", "Hampstead Heath", 2, 3)),
+				new SubjectScore[]{
+					new SubjectScore("Astronomy", 90),
+					new SubjectScore("Potions", 70),
+					new SubjectScore("Transfiguration", 95),
+					new SubjectScore("Flying", 85),
+					new SubjectScore("Charms", 87)
 					}
 			);
 			Candidate candidateFifth = new(
-				new Person("Anna", "Stone",
-					new Address("Minsk", "Pervomaiskaya", 23, 35)),
-					new SubjectScore[]{
-				new SubjectScore("Maths", 70),
-				new SubjectScore("Physics", 60),
-				new SubjectScore("Foreign language", 75),
-				new SubjectScore("Literature", 85),
-				new SubjectScore("Music", 87)
-					}
+				new Person("Ginevra", "Weasley",
+					new Address("Ottery St Catchpole", "The Burrow", 1, 2)),
+				new SubjectScore[]{
+					new SubjectScore("Astronomy", 70),
+					new SubjectScore("Potions", 60),
+					new SubjectScore("Transfiguration", 75),
+					new SubjectScore("Flying", 85),
+					new SubjectScore("Charms", 87)
+				}
 			);
 
 			Candidate[] allCandidates = new Candidate[]{
@@ -75,7 +75,7 @@ namespace University
 				Console.WriteLine(candidate.GetStreet());
 			}
 
-			string subjectName = "Maths";
+			string subjectName = "Astronomy";
 			int maxScoreSubject = SubjectScore.MinScore;
 			string? candidateLastnameMaxScore = null;
 			foreach (Candidate candidate in allCandidates)
