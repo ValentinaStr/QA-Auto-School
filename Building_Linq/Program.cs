@@ -1,5 +1,5 @@
-﻿using Building_LINQ.RealProperty;
-using Building_LINQ;
+﻿using Building_Linq.RealProperty;
+using Building_Linq;
 using University.Candidates;
 using University.Employee;
 
@@ -66,7 +66,7 @@ namespace Building_Linq
 
 			List<UniversityEmployee> allUniversityEmployees = new() { deanOfSlytherin };
 
-			Rector rector = new Rector(new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
+			Rector rector = new (new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
 				10000001);
 
 			OurUniversity hogwarts = new(rector,

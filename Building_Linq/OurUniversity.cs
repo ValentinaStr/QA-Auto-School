@@ -1,8 +1,8 @@
 ﻿using University.Employee;
 using University.Candidates;
-using Building_LINQ.RealProperty;
+using Building_Linq.RealProperty;
 
-namespace Building_LINQ
+namespace Building_Linq
 {
     internal class OurUniversity
 	{
