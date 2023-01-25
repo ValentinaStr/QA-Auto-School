@@ -14,5 +14,4 @@ namespace Building_LINQ
 			return $"Rector of the University {EmployeePerson.Name}{EmployeePerson.LastName}";
 		}
 	}
-
 }

@@ -127,7 +127,7 @@ namespace University
 				"Ghost of Slytherin");
 						
 			UniversityEmployee employee5 = new SupportStaff(
-			   new Person("Sir Nicholas", "Mimsy-Porpington",
+			   new Person("Nicholas", "Porpington",
 					new Address("Oxford", "St. Aldates", 23, 66)),
 			   654789,
 			   "Ghost",
