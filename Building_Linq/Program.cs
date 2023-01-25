@@ -152,7 +152,7 @@ namespace Building_Linq
 				$"{buildingWithMostRooms.AddressBulding.Street}," +
 				$"{buildingWithMostRooms.AddressBulding.HouseNumber}");
 
-			UniversityEmployee teacherGryffindor = new DegreeTeacher(new Person("Alastor", "«Mad-Eye» Moody", new Address("London", "St. Aldates", 22, 10)),
+			UniversityEmployee teacherGryffindor = new DegreeTeacher(new Person("Alastor", "Moody", new Address("London", "St. Aldates", 22, 10)),
 				114557333,
 				new Course("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
 				"Doctor of DADA",
@@ -166,6 +166,39 @@ namespace Building_Linq
 
 			Console.WriteLine("Task 5.6");
 			Console.WriteLine($"  The most popular LastName is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
+
+			try
+			{
+				new Teacher(new Person("Lucius", "Malfoy", new Address("Oxford", "Diagon Alley", 23, 22)),
+					-123654,
+					new Course("Death Eaters", "the seizure of power by purebred magicians,"));
+			}
+			catch (ArgumentException ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			try
+			{
+				new Person("Fleur Isabelle", "Delacour", new Address("Oxford", "Diagon Alley", 25, 28)); ;
+			}
+			catch (ArgumentException ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			var sortedByLinghtLastnameEmployees = hogwarts.AllUniversityEmployees.
+				OrderByDescending(p => (p.EmployeePerson.LastName.Length + p.EmployeePerson.Name.Length)).ToList();
+			
+			hogwarts.AllUniversityEmployees.Sort();
+
+			hogwarts.AllUniversityEmployees.Sort((x, y) => (y.EmployeePerson.Name.Length + y.EmployeePerson.LastName.Length)
+				.CompareTo((x.EmployeePerson.Name.Length + x.EmployeePerson.LastName.Length)));
+
+			IComparer<UniversityEmployee> comparer = new MyOrderingEmployee();
+			hogwarts.AllUniversityEmployees.Sort(comparer);
+
+			Console.WriteLine("THE END");
 		}
 	}
 }

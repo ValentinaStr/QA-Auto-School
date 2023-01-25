@@ -8,7 +8,11 @@
 
         public Person(string name, string lastname, Address address)
         {
-            Name = name;
+			if (name.Length + lastname.Length > 20)
+			{
+				throw new ArgumentException("Wrong lenght Name or Lastname");
+			}
+			Name = name;
             LastName = lastname;
             Address = address;
         }
