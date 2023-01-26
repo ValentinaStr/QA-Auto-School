@@ -3,264 +3,277 @@ using Building_Linq;
 using University.Candidates;
 using University.Employee;
 
-namespace Building_Linq
+
+internal class Program
 {
-	internal class Program
+	static void Main(string[] args)
 	{
-		static void Main(string[] args)
+		var theMainBuilding = new Building(
+			1,
+			"Main building",
+			new () { 
+				new (1, "Rector's office"),
+				new (2, "Admissions team"),
+				new (3, "Library"),
+				new (4, "Great Hall")
+				},
+			new ("Oxford", "St. Aldates", 22)
+			);
+
+		var gryffindorTower = new Building(
+			2,
+			"Gryffindor Tower",
+			new () {
+				new (2, "Library"),
+				new (3, "Common Room"),
+				new (4, "Girls' bedroom"),
+				new (5, "Boys' bedroom")
+				},
+			new ("Oxford", "St. Aldates", 23)
+			);
+
+		var slytherinTower = new Building(
+			3,
+			"Slytherin dungeons",
+			new () {
+				new (2, "Library"),
+				new (3, "Common Room"),
+				new (4, "Girls' bedroom"),
+				new (5, "Boys' bedroom")
+				},
+			new ("Oxford", "St. Aldates", 24)
+			);
+
+		var ravenclawTower = new Building(
+			4,
+			"Ravenclaw Tower",
+			new () {
+				new (2, "Library"),
+				new (3, "Common Room"),
+				new (4, "Girls' bedroom"),
+				new (5, "Boys' bedroom")
+				},
+			new ("Oxford", "St. Aldates", 25)
+			);
+
+		var hufflepuffTower = new Building(
+			5,
+			"Hufflepuff barrel",
+			new () {
+				new (2, "Library"),
+				new (3, "Common Room"),
+				new (4, "Girls' bedroom"),
+				new (5, "Boys' bedroom")
+				},
+			new ("Oxford", "St. Aldates", 26)
+			);
+
+		var allBuilding = new List<Building>() {theMainBuilding };
+
+		var deanOfSlytherin = new Teacher(
+			new ("Severus", "Snape",
+				new ("London", "St. Aldates", 24, 1)),
+			124456789,
+			new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
+
+		var deanOfGryffindor = new DegreeTeacher(
+			new ("Minerva", "McGonagall",
+				new ("London", "St. Aldates", 23, 1)),
+			114567891,
+			new ("Transfiguration", "Studies magical ways to transform one object into another"),
+			"Doctor of Transfiguration",
+			"Professor");
+
+		var deanHufflepuff = new DegreeTeacher(
+			new ("Pomona", "Sprout",
+				new ("London", "St. Aldates", 26, 1)),
+			122456789,
+			new ("Herbology", "Study of various plants"),
+			"Doktor of Herbology",
+			"Professor");
+
+		var deanRavenclaw = new DegreeTeacher(
+			new ("Filius", "Flitwick", 
+				new ("London", "St. Aldates", 25, 1)),
+			102569877,
+			new ("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
+			"Doctor of Charms",
+			"Professor");
+
+		var allUniversityEmployees = new List<UniversityEmployee>() { deanOfSlytherin };
+
+		var rector = new Rector (
+			new("Albus", "Dumbledore",
+				new ("Oxford", "St. Aldates", 22, 22)),
+			10000001);
+
+		var hogwarts = new OurUniversity(
+			rector,
+			allUniversityEmployees,
+			allBuilding);
+
+		hogwarts.AddEmployee(deanOfGryffindor);
+		hogwarts.AddEmployee(deanHufflepuff);
+		hogwarts.AddEmployee(deanRavenclaw);
+
+		hogwarts.AddBuilding(slytherinTower);
+		hogwarts.AddBuilding(gryffindorTower);
+		hogwarts.AddBuilding(slytherinTower);
+		hogwarts.AddBuilding(ravenclawTower);
+		hogwarts.AddBuilding(hufflepuffTower);
+		hogwarts.AddBuilding(slytherinTower);
+
+		// Task_5.1 A list employees whose last names begin with the given letter.
+
+		var letterForSelected = 'S';
+		var selectedByBeginLastnameEmployees = hogwarts.AllUniversityEmployees
+			.Where(p => p.EmployeePerson.LastName.StartsWith(letterForSelected))
+			.OrderBy(p => p.TaxId)
+			.ToList();
+
+		Console.WriteLine("Task 5.1");
+		Console.WriteLine($" List of employees with last name starting {letterForSelected}:");
+
+		foreach (var employee in selectedByBeginLastnameEmployees)
 		{
-			var theMainBuilding = new Building(
-				1,
-				"Main building",
-				new () { 
-					new (1, "Rector's office"),
-					new (2, "Admissions team"),
-					new (3, "Library"),
-					new (4, "Great Hall")
-					},
-				new ("Oxford", "St. Aldates", 22)
-				);
+			Console.WriteLine(employee.GetOfficialDuties());
+		}
 
-			var gryffindorTower = new Building(
-				2,
-				"Gryffindor Tower",
-				new () {
-					new (2, "Library"),
-					new (3, "Common Room"),
-					new (4, "Girls' bedroom"),
-					new (5, "Boys' bedroom")
-					},
-				new ("Oxford", "St. Aldates", 23)
-				);
+		// Task_5.2 List of employees leading a particular course.
 
-			var slytherinTower = new Building(
-				3,
-				"Slytherin dungeons",
-				new () {
-					new (2, "Library"),
-					new (3, "Common Room"),
-					new (4, "Girls' bedroom"),
-					new (5, "Boys' bedroom")
-					},
-				new ("Oxford", "St. Aldates", 24)
-				);
+		var courseForSelected = "Herbology";
+		var selectedByCourseEmployees = hogwarts.AllUniversityEmployees
+			.OfType<Teacher>()
+			.Where(p => p.CourseName.Name.Equals(courseForSelected))
+			.ToList();
 
-			var ravenclawTower = new Building(
-				4,
-				"Ravenclaw Tower",
-				new () {
-					new (2, "Library"),
-					new (3, "Common Room"),
-					new (4, "Girls' bedroom"),
-					new (5, "Boys' bedroom")
-					},
-				new ("Oxford", "St. Aldates", 25)
-				);
+		Console.WriteLine("Task 5.2");
+		Console.WriteLine($"  List of employees who reading course {courseForSelected}:");
 
-			var hufflepuffTower = new Building(
-				5,
-				"Hufflepuff barrel",
-				new () {
-					new (2, "Library"),
-					new (3, "Common Room"),
-					new (4, "Girls' bedroom"),
-					new (5, "Boys' bedroom")
-					},
-				new ("Oxford", "St. Aldates", 26)
-				);
+		foreach (var employee in selectedByCourseEmployees)
+		{
+			Console.WriteLine(employee.GetOfficialDuties());
+		}
 
-			var allBuilding = new List<Building>() {theMainBuilding };
+		//Task_5.3 Display TaxID and job responsibilities of each employee.
 
-			var deanOfSlytherin = new Teacher(
-				new ("Severus", "Snape",
-					new ("London", "St. Aldates", 24, 1)),
-				124456789,
-				new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
+		var listOfTaxIDDuties = hogwarts.AllUniversityEmployees
+			.Select(p => (p.TaxId, p.GetOfficialDuties()))
+			.ToList();
 
-			var deanOfGryffindor = new DegreeTeacher(
-				new ("Minerva", "McGonagall",
-					new ("London", "St. Aldates", 23, 1)),
-				114567891,
-				new ("Transfiguration", "Studies magical ways to transform one object into another"),
-				"Doctor of Transfiguration",
-				"Professor");
+		Console.WriteLine("Task 5.3");
+		Console.WriteLine("  TaxId and responsibilities of each employee ");
 
-			var deanHufflepuff = new DegreeTeacher(
-				new ("Pomona", "Sprout",
-					new ("London", "St. Aldates", 26, 1)),
-				122456789,
-				new ("Herbology", "Study of various plants"),
-				"Doktor of Herbology",
-				"Professor");
+		foreach (var item in listOfTaxIDDuties)
+		{
+			Console.WriteLine(item);
+		}
 
-			var deanRavenclaw = new DegreeTeacher(
-				new ("Filius", "Flitwick", 
-					new ("London", "St. Aldates", 25, 1)),
-				102569877,
-				new ("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
-				"Doctor of Charms",
-				"Professor");
+		//Task_5.4 Display the addresses of all buildings that have a room with a cer-tain number.
 
-			var allUniversityEmployees = new List<UniversityEmployee>() { deanOfSlytherin };
+		var roomNumberForSelect = 2;
+		var listBuildingAddress = hogwarts.Allbuildings
+			.Where(x => x.Rooms.Any(x => x.NumberRoom == roomNumberForSelect))
+			.Select(x => (x.AddressBulding.City, x.AddressBulding.Street, x.AddressBulding.HouseNumber))
+			.ToList();
 
-			var rector = new Rector (
-				new("Albus", "Dumbledore",
-					new ("Oxford", "St. Aldates", 22, 22)),
-				10000001);
+		Console.WriteLine("Task 5.4");
+		Console.WriteLine($"  List of buiding that have a room with number: {roomNumberForSelect}");
 
-			var hogwarts = new OurUniversity(
-				rector,
-				allUniversityEmployees,
-				allBuilding);
+		foreach (var item in listBuildingAddress)
+		{
+			Console.WriteLine("City: {0}, Street: {1}, Building number: {2}", item.City, item.Street, item.HouseNumber);
+		}
 
-			hogwarts.AddEmployee(deanOfGryffindor);
-			hogwarts.AddEmployee(deanHufflepuff);
-			hogwarts.AddEmployee(deanRavenclaw);
+		//Task_5.5 Display the address of the building with the maximum number of rooms in it
 
-			hogwarts.AddBuilding(slytherinTower);
-			hogwarts.AddBuilding(gryffindorTower);
-			hogwarts.AddBuilding(slytherinTower);
-			hogwarts.AddBuilding(ravenclawTower);
-			hogwarts.AddBuilding(hufflepuffTower);
-			hogwarts.AddBuilding(slytherinTower);
+		var buildingWithMostRooms = hogwarts.Allbuildings.MaxBy(x => x.Rooms.Count());
 
-			// Task_5.1 A list employees whose last names begin with the given letter.
+		Console.WriteLine("Task 5.5");
+		Console.WriteLine($"  The building with most Rooms address is :" +
+			$"{buildingWithMostRooms.AddressBulding.City}," +
+			$"{buildingWithMostRooms.AddressBulding.Street}," +
+			$"{buildingWithMostRooms.AddressBulding.HouseNumber}");
 
-			var letterForSelected = 'S';
-			var selectedByBeginLastnameEmployees = hogwarts.AllUniversityEmployees
-				.Where(p => p.EmployeePerson.LastName.StartsWith(letterForSelected))
-				.OrderBy(p => p.TaxId)
-				.ToList();
+		var teacherGryffindor = new DegreeTeacher(
+			new ("Alastor", "Moody",
+				new ("London", "St. Aldates", 22, 10)),
+			114557333,
+			new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
+			"Doctor of DADA",
+			"Professor");
 
-			Console.WriteLine("Task 5.1");
-			Console.WriteLine($" List of employees with last name starting {letterForSelected}:");
+		hogwarts.AddEmployee(teacherGryffindor);
 
-			foreach (var employee in selectedByBeginLastnameEmployees)
-			{
-				Console.WriteLine(employee.GetOfficialDuties());
-			}
+		// Task_5.6 Display the most common employee last name and the number of such employees
 
-			// Task_5.2 List of employees leading a particular course.
+		var lastNameMost = hogwarts.AllUniversityEmployees
+			.GroupBy(x => x.EmployeePerson.LastName)
+			.MaxBy(x => x.Count());
 
-			var courseForSelected = "Herbology";
-			var selectedByCourseEmployees = hogwarts.AllUniversityEmployees
-				.OfType<Teacher>()
-				.Where(p => p.CourseName.Name.Equals(courseForSelected))
-				.ToList();
+		Console.WriteLine("Task 5.6");
+		Console.WriteLine($" The most popular LastName is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
 
-			Console.WriteLine("Task 5.2");
-			Console.WriteLine($"  List of employees who reading course {courseForSelected}:");
+		// Task 6.1 TaxId check.
 
-			foreach (var employee in selectedByCourseEmployees)
-			{
-				Console.WriteLine(employee.GetOfficialDuties());
-			}
+		Console.WriteLine("Task 6.1");
 
-			//Task_5.3 Display TaxID and job responsibilities of each employee.
+		try
+		{
+			new Teacher(
+			new ("Lucius", "Malfoy",
+				new ("Oxford", "Diagon Alley", 23, 22)),
+			-123654,
+			new ("Death Eaters", "The seizure of power by purebred magicians,"));
+		}
+		catch (ArgumentException ex)
+		{
+			Console.WriteLine(ex.Message);
+		}
 
-			var listOfTaxIDDuties = hogwarts.AllUniversityEmployees
-				.Select(p => (p.TaxId, p.GetOfficialDuties()))
-				.ToList();
+		// Task 6.2 Checking the length of the employee's first and last name.
 
-			Console.WriteLine("Task 5.3");
-			Console.WriteLine("  TaxId and responsibilities of each employee ");
+		Console.WriteLine("Task 6.2");
 
-			foreach (var item in listOfTaxIDDuties)
-			{
-				Console.WriteLine(item);
-			}
+		try
+		{
+			var fleur = new Person(
+				"Fleur Isabellee",
+				"Delacour",
+				new ("Oxford", "Diagon Alley", 25, 28)); ;
+		}
+		catch (ArgumentException ex)
+		{
+			Console.WriteLine(ex.Message);
+		}
 
-			//Task_5.4 Display the addresses of all buildings that have a room with a cer-tain number.
+		// Task 6.3 Sort the list of employees by the total length of the first and last name using the LINQ OrderBy() method.
 
-			var roomNumberForSelect = 2;
-			var listBuildingAddress = hogwarts.Allbuildings
-				.Where(x => x.Rooms.Any(x => x.NumberRoom == roomNumberForSelect))
-				.Select(x => (x.AddressBulding.City, x.AddressBulding.Street, x.AddressBulding.HouseNumber))
-				.ToList();
+		var sortedByLinghtLastnameEmployees = hogwarts.AllUniversityEmployees
+			.OrderByDescending(p => (p.EmployeePerson.LenghtNameLastName))
+			.ToList();
 
-			Console.WriteLine("Task 5.4");
-			Console.WriteLine($"  List of buiding that have a room with number: {roomNumberForSelect}");
+		Console.WriteLine("Task 6.3");
 
-			foreach (var item in listBuildingAddress)
-			{
-				Console.WriteLine("City: {0}, Street: {1}, Building number: {2}", item.City, item.Street, item.HouseNumber);
-			}
+		sortedByLinghtLastnameEmployees.ForEach(p => Console.WriteLine(p.ToString()));
 
-			//Task_5.5 Display the address of the building with the maximum number of rooms in it
+		// Task 6.4 Sort the list of employees by the total length of the first and last name using the Sort() method.
 
-			var buildingWithMostRooms = hogwarts.Allbuildings.MaxBy(x => x.Rooms.Count());
+		hogwarts.AllUniversityEmployees.Sort();
 
-			Console.WriteLine("Task 5.5");
-			Console.WriteLine($"  The building with most Rooms address is :" +
-				$"{buildingWithMostRooms.AddressBulding.City}," +
-				$"{buildingWithMostRooms.AddressBulding.Street}," +
-				$"{buildingWithMostRooms.AddressBulding.HouseNumber}");
+		Console.WriteLine("Task 6.4");
 
-			var teacherGryffindor = new DegreeTeacher(
-				new ("Alastor", "Moody",
-					new ("London", "St. Aldates", 22, 10)),
-				114557333,
-				new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
-				"Doctor of DADA",
-				"Professor");
+		allUniversityEmployees.ForEach(p => Console.WriteLine(p.ToString()));
 
-			hogwarts.AddEmployee(teacherGryffindor);
+		hogwarts.AllUniversityEmployees.Sort((x, y) => y.EmployeePerson.LenghtNameLastName
+			.CompareTo(x.EmployeePerson.LenghtNameLastName));
 
-			// Task_5.6 Display the most common employee last name and the number of such employees
+		// Task 6.5 Sort the list of employees by the total length of the first and last name using the Sort(IComparer) method.
 
-			var lastNameMost = hogwarts.AllUniversityEmployees
-				.GroupBy(x => x.EmployeePerson.LastName)
-				.MaxBy(x => x.Count());
+		Console.WriteLine("Task 6.5");
 
-			Console.WriteLine("Task 5.6");
-			Console.WriteLine($" The most popular LastName is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
+		hogwarts.AllUniversityEmployees.Sort(new MyOrderingEmployee());
 
-			// Task 6.1 TaxId check.
-			try
-			{
-				new Teacher(
-				new ("Lucius", "Malfoy",
-					new ("Oxford", "Diagon Alley", 23, 22)),
-				-123654,
-				new ("Death Eaters", "The seizure of power by purebred magicians,"));
-			}
-			catch (ArgumentException ex)
-			{
-				Console.WriteLine(ex.Message);
-			}
-
-			// Task 6.2 Checking the length of the employee's first and last name.
-			try
-			{
-				var fleur = new Person(
-					"Fleur Isabellee",
-					"Delacour",
-					new ("Oxford", "Diagon Alley", 25, 28)); ;
-			}
-			catch (ArgumentException ex)
-			{
-				Console.WriteLine(ex.Message);
-			}
-
-			// Task 6.3 Sort the list of employees by the total length of the first and last name by the LINQ OrderBy() method.
-
-			var sortedByLinghtLastnameEmployees = hogwarts.AllUniversityEmployees
-				.OrderByDescending(p => (p.EmployeePerson.LenghtNameLastName))
-				.ToList();
-
-			sortedByLinghtLastnameEmployees.ForEach(p => Console.WriteLine(p.ToString()));
-
-			// Task 6.4 Sort the list of employees by the total length of the first and last name by the Sort() method.
-
-			hogwarts.AllUniversityEmployees.Sort();
-
-			hogwarts.AllUniversityEmployees.Sort((x, y) => (y.EmployeePerson.Name.Length + y.EmployeePerson.LastName.Length)
-				.CompareTo((x.EmployeePerson.Name.Length + x.EmployeePerson.LastName.Length)));
-
-			// Task 6.5 Sort the list of employees by the total length of the first and last name by the Sort(IComparer) method.
-
-			hogwarts.AllUniversityEmployees.Sort(new MyOrderingEmployee());
-			
+		allUniversityEmployees.ForEach(p => Console.WriteLine(p.ToString()));
 		}
 	}
-}
