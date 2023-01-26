@@ -85,13 +85,17 @@ namespace Building_Linq
 				"Doctor of Transfiguration",
 				"Professor");
 
-			var deanHufflepuff = new DegreeTeacher(new ("Pomona", "Sprout", new ("London", "St. Aldates", 26, 1)),
+			var deanHufflepuff = new DegreeTeacher(
+				new ("Pomona", "Sprout",
+					new ("London", "St. Aldates", 26, 1)),
 				122456789,
 				new ("Herbology", "Study of various plants"),
 				"Doktor of Herbology",
 				"Professor");
 
-			var deanRavenclaw = new DegreeTeacher(new ("Filius", "Flitwick", new ("London", "St. Aldates", 25, 1)),
+			var deanRavenclaw = new DegreeTeacher(
+				new ("Filius", "Flitwick", 
+					new ("London", "St. Aldates", 25, 1)),
 				102569877,
 				new ("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
 				"Doctor of Charms",
@@ -99,10 +103,13 @@ namespace Building_Linq
 
 			var allUniversityEmployees = new List<UniversityEmployee>() { deanOfSlytherin };
 
-			var rector = new Rector (new("Albus", "Dumbledore", new ("Oxford", "St. Aldates", 22, 22)),
+			var rector = new Rector (
+				new("Albus", "Dumbledore",
+					new ("Oxford", "St. Aldates", 22, 22)),
 				10000001);
 
-			var hogwarts = new OurUniversity(rector,
+			var hogwarts = new OurUniversity(
+				rector,
 				allUniversityEmployees,
 				allBuilding);
 

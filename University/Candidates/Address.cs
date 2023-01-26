@@ -2,6 +2,8 @@
 {
     public class Address
     {
+        public static Address NoAddress = new(" ", " ", 0, 0);
+
         private int _house;
         private int _flat;
         public string City { get; set; }
