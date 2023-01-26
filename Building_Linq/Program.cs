@@ -125,7 +125,7 @@ internal class Program
 
 		// Task_5.1 A list employees whose last names begin with the given letter.
 
-		var letterForSelected = 'S';
+		var letterForSelected = 'F';
 		var selectedByBeginLastnameEmployees = hogwarts.AllUniversityEmployees
 			.Where(p => p.EmployeePerson.LastName.StartsWith(letterForSelected))
 			.OrderBy(p => p.TaxId)
