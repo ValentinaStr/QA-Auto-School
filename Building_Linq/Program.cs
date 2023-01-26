@@ -9,67 +9,100 @@ namespace Building_Linq
 	{
 		static void Main(string[] args)
 		{
-			Building theMainBuilding = new(1,
+			var theMainBuilding = new Building(
+				1,
 				"Main building",
-				new List<Room>() { new Room(1, "Rector's office"), new Room(2, "Admissions team"), new Room(3, "Library"), new Room(4, "Great Hall") },
-				new AddressBulding("Oxford", "St. Aldates", 22)
+				new () { 
+					new (1, "Rector's office"),
+					new (2, "Admissions team"),
+					new (3, "Library"),
+					new (4, "Great Hall")
+					},
+				new ("Oxford", "St. Aldates", 22)
 				);
 
-			Building gryffindorTower = new(2,
+			var gryffindorTower = new Building(
+				2,
 				"Gryffindor Tower",
-				new List<Room>() { new Room(2, "Library"), new Room(3, "Common Room"), new Room(4, "Girls' bedroom"), new Room(5, "Boys' bedroom") },
-				new AddressBulding("Oxford", "St. Aldates", 23)
+				new () {
+					new (2, "Library"),
+					new (3, "Common Room"),
+					new (4, "Girls' bedroom"),
+					new (5, "Boys' bedroom")
+					},
+				new ("Oxford", "St. Aldates", 23)
 				);
 
-			Building slytherinTower = new(3,
+			var slytherinTower = new Building(
+				3,
 				"Slytherin dungeons",
-				new List<Room>() { new Room(2, "Library"), new Room(3, "Common Room"), new Room(4, "Girls' bedroom"), new Room(5, "Boys' bedroom") },
-				new AddressBulding("Oxford", "St. Aldates", 24)
+				new () {
+					new (2, "Library"),
+					new (3, "Common Room"),
+					new (4, "Girls' bedroom"),
+					new (5, "Boys' bedroom")
+					},
+				new ("Oxford", "St. Aldates", 24)
 				);
 
-			Building ravenclawTower = new(4,
+			var ravenclawTower = new Building(
+				4,
 				"Ravenclaw Tower",
-				new List<Room>() { new Room(2, "Library"), new Room(3, "Common Room"), new Room(4, "Girls' bedroom"), new Room(5, "Boys' bedroom") },
-				new AddressBulding("Oxford", "St. Aldates", 25)
+				new () {
+					new (2, "Library"),
+					new (3, "Common Room"),
+					new (4, "Girls' bedroom"),
+					new (5, "Boys' bedroom")
+					},
+				new ("Oxford", "St. Aldates", 25)
 				);
 
-			Building hufflepuffTower = new(5,
+			var hufflepuffTower = new Building(
+				5,
 				"Hufflepuff barrel",
-				new List<Room>() { new Room(2, "Library"), new Room(3, "Common Room"), new Room(4, "Girls' bedroom"), new Room(5, "Boys' bedroom") },
-				new AddressBulding("Oxford", "St. Aldates", 26)
+				new () {
+					new (2, "Library"),
+					new (3, "Common Room"),
+					new (4, "Girls' bedroom"),
+					new (5, "Boys' bedroom")
+					},
+				new ("Oxford", "St. Aldates", 26)
 				);
 
-			List<Building> allBuilding = new() { theMainBuilding };
+			var allBuilding = new List<Building>() {theMainBuilding };
 
-			UniversityEmployee deanOfSlytherin = new Teacher(new Person("Severus", "Snape",
-				new Address("London", "St. Aldates", 24, 1)),
+			var deanOfSlytherin = new Teacher(
+				new ("Severus", "Snape",
+					new ("London", "St. Aldates", 24, 1)),
 				124456789,
-				new Course("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
+				new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
 
-			UniversityEmployee deanOfGryffindor = new DegreeTeacher(new Person("Minerva", "McGonagall", new Address("London", "St. Aldates", 23, 1)),
+			var deanOfGryffindor = new DegreeTeacher(
+				new ("Minerva", "McGonagall",
+					new ("London", "St. Aldates", 23, 1)),
 				114567891,
-				new Course("Transfiguration", "Studies magical ways to transform one object into another"),
+				new ("Transfiguration", "Studies magical ways to transform one object into another"),
 				"Doctor of Transfiguration",
 				"Professor");
 
-			UniversityEmployee deanHufflepuff = new DegreeTeacher(new Person("Pomona", "Sprout", new Address("London", "St. Aldates", 26, 1)),
+			var deanHufflepuff = new DegreeTeacher(new ("Pomona", "Sprout", new ("London", "St. Aldates", 26, 1)),
 				122456789,
-				new Course("Herbology", "Study of various plants"),
+				new ("Herbology", "Study of various plants"),
 				"Doktor of Herbology",
 				"Professor");
 
-			UniversityEmployee deanRavenclaw = new DegreeTeacher(new Person("Filius", "Flitwick", new Address("London", "St. Aldates", 25, 1)),
+			var deanRavenclaw = new DegreeTeacher(new ("Filius", "Flitwick", new ("London", "St. Aldates", 25, 1)),
 				102569877,
-				new Course("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
+				new ("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
 				"Doctor of Charms",
 				"Professor");
 
-			List<UniversityEmployee> allUniversityEmployees = new() { deanOfSlytherin };
+			var allUniversityEmployees = new List<UniversityEmployee>() { deanOfSlytherin };
 
-			Rector rector = new (new Person("Albus", "Dumbledore", new Address("Oxford", "St. Aldates", 22, 22)),
+			var rector = new Rector (new("Albus", "Dumbledore", new ("Oxford", "St. Aldates", 22, 22)),
 				10000001);
 
-			OurUniversity hogwarts = new(rector,
+			var hogwarts = new OurUniversity(rector,
 				allUniversityEmployees,
 				allBuilding);
 
