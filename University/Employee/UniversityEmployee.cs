@@ -22,15 +22,18 @@ namespace University.Employee
 		}
 		public abstract string GetOfficialDuties();
 
+		public override string ToString()
+		{
+			return EmployeePerson.Name + " " +  EmployeePerson.LastName + " " + EmployeePerson.LenghtNameLastName;
+		}
 
 		public int CompareTo(UniversityEmployee? employee)
 		{
-			if (employee?.EmployeePerson.Name is null|| employee.EmployeePerson.LastName is null)
+			if (employee == null)
 			{
-				throw new ArgumentException("Wrong Name or Lastname");
+				return -1;
 			}
-			return (employee.EmployeePerson.Name.Length + employee.EmployeePerson.LastName.Length)
-				   - (EmployeePerson.Name.Length + EmployeePerson.LastName.Length);
+			return employee.EmployeePerson.LenghtNameLastName - EmployeePerson.LenghtNameLastName;
 		}
 	}
 }

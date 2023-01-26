@@ -2,11 +2,11 @@
 {
     public class Address
     {
-        public static Address NoAddress = new(" ", " ", 0, 0);
-
+        
         private int _house;
         private int _flat;
-        public string City { get; set; }
+		public static Address NoAddress = new(" ", " ", 0, 0);
+		public string City { get; set; }
         public string Street { get; set; }
         public int House
         {
@@ -31,7 +31,6 @@
             }
 
         }
-
         public Address(string town, string street, int house, int flat)
         {
             City = town;

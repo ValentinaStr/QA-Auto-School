@@ -133,7 +133,7 @@ namespace Building_Linq
 				.ToList();
 
 			Console.WriteLine("Task 5.1");
-			Console.WriteLine($"  List of employees with last name starting {letterForSelected}:");
+			Console.WriteLine($" List of employees with last name starting {letterForSelected}:");
 
 			foreach (var employee in selectedByBeginLastnameEmployees)
 			{
@@ -143,7 +143,8 @@ namespace Building_Linq
 			// Task_5.2 List of employees leading a particular course.
 
 			var courseForSelected = "Herbology";
-			var selectedByCourseEmployees = hogwarts.AllUniversityEmployees.OfType<Teacher>()
+			var selectedByCourseEmployees = hogwarts.AllUniversityEmployees
+				.OfType<Teacher>()
 				.Where(p => p.CourseName.Name.Equals(courseForSelected))
 				.ToList();
 
@@ -157,10 +158,13 @@ namespace Building_Linq
 
 			//Task_5.3 Display TaxID and job responsibilities of each employee.
 
-			var listOfTaxIDDuties = hogwarts.AllUniversityEmployees.Select(p => (p.TaxId, p.GetOfficialDuties())).ToList();
+			var listOfTaxIDDuties = hogwarts.AllUniversityEmployees
+				.Select(p => (p.TaxId, p.GetOfficialDuties()))
+				.ToList();
 
 			Console.WriteLine("Task 5.3");
 			Console.WriteLine("  TaxId and responsibilities of each employee ");
+
 			foreach (var item in listOfTaxIDDuties)
 			{
 				Console.WriteLine(item);
@@ -192,9 +196,11 @@ namespace Building_Linq
 				$"{buildingWithMostRooms.AddressBulding.Street}," +
 				$"{buildingWithMostRooms.AddressBulding.HouseNumber}");
 
-			UniversityEmployee teacherGryffindor = new DegreeTeacher(new Person("Alastor", "Moody", new Address("London", "St. Aldates", 22, 10)),
+			var teacherGryffindor = new DegreeTeacher(
+				new ("Alastor", "Moody",
+					new ("London", "St. Aldates", 22, 10)),
 				114557333,
-				new Course("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
+				new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
 				"Doctor of DADA",
 				"Professor");
 
@@ -202,43 +208,59 @@ namespace Building_Linq
 
 			// Task_5.6 Display the most common employee last name and the number of such employees
 
-			var lastNameMost = hogwarts.AllUniversityEmployees.GroupBy(x => x.EmployeePerson.LastName).MaxBy(x => x.Count());
+			var lastNameMost = hogwarts.AllUniversityEmployees
+				.GroupBy(x => x.EmployeePerson.LastName)
+				.MaxBy(x => x.Count());
 
 			Console.WriteLine("Task 5.6");
-			Console.WriteLine($"  The most popular LastName is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
+			Console.WriteLine($" The most popular LastName is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
 
+			// Task 6.1 TaxId check.
 			try
 			{
-				new Teacher(new Person("Lucius", "Malfoy", new Address("Oxford", "Diagon Alley", 23, 22)),
-					-123654,
-					new Course("Death Eaters", "the seizure of power by purebred magicians,"));
+				new Teacher(
+				new ("Lucius", "Malfoy",
+					new ("Oxford", "Diagon Alley", 23, 22)),
+				-123654,
+				new ("Death Eaters", "The seizure of power by purebred magicians,"));
 			}
 			catch (ArgumentException ex)
 			{
 				Console.WriteLine(ex.Message);
 			}
 
+			// Task 6.2 Checking the length of the employee's first and last name.
 			try
 			{
-				new Person("Fleur Isabelle", "Delacour", new Address("Oxford", "Diagon Alley", 25, 28)); ;
+				var fleur = new Person(
+					"Fleur Isabellee",
+					"Delacour",
+					new ("Oxford", "Diagon Alley", 25, 28)); ;
 			}
 			catch (ArgumentException ex)
 			{
 				Console.WriteLine(ex.Message);
 			}
 
-			var sortedByLinghtLastnameEmployees = hogwarts.AllUniversityEmployees.
-				OrderByDescending(p => (p.EmployeePerson.LastName.Length + p.EmployeePerson.Name.Length)).ToList();
-			
+			// Task 6.3 Sort the list of employees by the total length of the first and last name by the LINQ OrderBy() method.
+
+			var sortedByLinghtLastnameEmployees = hogwarts.AllUniversityEmployees
+				.OrderByDescending(p => (p.EmployeePerson.LenghtNameLastName))
+				.ToList();
+
+			sortedByLinghtLastnameEmployees.ForEach(p => Console.WriteLine(p.ToString()));
+
+			// Task 6.4 Sort the list of employees by the total length of the first and last name by the Sort() method.
+
 			hogwarts.AllUniversityEmployees.Sort();
 
 			hogwarts.AllUniversityEmployees.Sort((x, y) => (y.EmployeePerson.Name.Length + y.EmployeePerson.LastName.Length)
 				.CompareTo((x.EmployeePerson.Name.Length + x.EmployeePerson.LastName.Length)));
 
-			IComparer<UniversityEmployee> comparer = new MyOrderingEmployee();
-			hogwarts.AllUniversityEmployees.Sort(comparer);
+			// Task 6.5 Sort the list of employees by the total length of the first and last name by the Sort(IComparer) method.
 
-			Console.WriteLine("THE END");
+			hogwarts.AllUniversityEmployees.Sort(new MyOrderingEmployee());
+			
 		}
 	}
 }

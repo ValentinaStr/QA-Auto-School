@@ -6,19 +6,19 @@ namespace Building_Linq
 	{
 		public int Compare(UniversityEmployee? prevEmployee, UniversityEmployee? nextEmployee)
 		{
-			int prevSumLenghtNameLastname = prevEmployee.EmployeePerson.Name.Length + prevEmployee.EmployeePerson.LastName.Length;
-			int nextSumLenghtNameLastname = nextEmployee.EmployeePerson.Name.Length + nextEmployee.EmployeePerson.LastName.Length;
-
-			if (nextSumLenghtNameLastname == prevSumLenghtNameLastname)
+			if (prevEmployee == null && nextEmployee == null)
 			{
 				return 0;
 			}
-
-			if (nextSumLenghtNameLastname < prevSumLenghtNameLastname)
+			else if (prevEmployee!= null && nextEmployee == null)
+			{
+				return 1;
+			}
+			else if(prevEmployee == null && nextEmployee != null) 
 			{
 				return -1;
 			}
-			return 1;
+			return nextEmployee.EmployeePerson.LenghtNameLastName - prevEmployee.EmployeePerson.LenghtNameLastName;
 		}
 	}
 }
