@@ -1,6 +1,4 @@
-﻿using University.Candidates;
-
-namespace Building_Linq.RealProperty
+﻿namespace Building_Linq.RealProperty
 {
     public class Building
     {

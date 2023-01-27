@@ -100,7 +100,7 @@ internal class Program
 			"Doctor of Charms",
 			"Professor");
 
-		var allUniversityEmployees = new List<UniversityEmployee>() { deanOfSlytherin };
+		var allUniversityEmployees = new List<UniversityEmployee>() {deanOfSlytherin};
 
 		var rector = new Rector (
 			new("Albus", "Dumbledore",
@@ -259,22 +259,22 @@ internal class Program
 
 		// Task 6.4 Sort the list of employees by the total length of the first and last name using the Sort() method.
 
-		List<UniversityEmployee> employeeForSort1 = new(allUniversityEmployees);
+		List<UniversityEmployee> listEmployeeForSort = new(allUniversityEmployees);
 
-		employeeForSort1.Sort();
+		listEmployeeForSort.Sort();
 
 		Console.WriteLine("Task 6.4");
 
-		allUniversityEmployees.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
+		listEmployeeForSort.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
 
 		// Task 6.5 Sort the list of employees by the total length of the first and last name using the Sort(IComparer) method.
 
 		Console.WriteLine("Task 6.5");
 
-		List<UniversityEmployee> employeeForSort2 = new(allUniversityEmployees);
+		List<UniversityEmployee> listEmployeeForSortIComparer = new(allUniversityEmployees);
 
-		employeeForSort2.Sort(new MyOrderingEmployee());
+		listEmployeeForSortIComparer.Sort(new MyOrderingEmployee());
 
-		employeeForSort2.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
+		listEmployeeForSortIComparer.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
 	}
 }

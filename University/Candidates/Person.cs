@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace University.Candidates
+﻿namespace University.Candidates
 { 
 	public class Person
     {
