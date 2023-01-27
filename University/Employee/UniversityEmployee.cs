@@ -24,7 +24,7 @@ namespace University.Employee
 
 		public override string ToString()
 		{
-			return EmployeePerson.Name + " " +  EmployeePerson.LastName + " " + EmployeePerson.LenghtNameLastName;
+			return EmployeePerson.Name + " " +  EmployeePerson.LastName;
 		}
 
 		public int CompareTo(UniversityEmployee? employee)

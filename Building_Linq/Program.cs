@@ -255,25 +255,26 @@ internal class Program
 
 		Console.WriteLine("Task 6.3");
 
-		sortedByLinghtLastnameEmployees.ForEach(p => Console.WriteLine(p.ToString()));
+		sortedByLinghtLastnameEmployees.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
 
 		// Task 6.4 Sort the list of employees by the total length of the first and last name using the Sort() method.
 
-		hogwarts.AllUniversityEmployees.Sort();
+		List<UniversityEmployee> employeeForSort1 = new(allUniversityEmployees);
+
+		employeeForSort1.Sort();
 
 		Console.WriteLine("Task 6.4");
 
-		allUniversityEmployees.ForEach(p => Console.WriteLine(p.ToString()));
-
-		hogwarts.AllUniversityEmployees.Sort((x, y) => y.EmployeePerson.LenghtNameLastName
-			.CompareTo(x.EmployeePerson.LenghtNameLastName));
+		allUniversityEmployees.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
 
 		// Task 6.5 Sort the list of employees by the total length of the first and last name using the Sort(IComparer) method.
 
 		Console.WriteLine("Task 6.5");
 
-		hogwarts.AllUniversityEmployees.Sort(new MyOrderingEmployee());
+		List<UniversityEmployee> employeeForSort2 = new(allUniversityEmployees);
 
-		allUniversityEmployees.ForEach(p => Console.WriteLine(p.ToString()));
-		}
+		employeeForSort2.Sort(new MyOrderingEmployee());
+
+		employeeForSort2.ForEach(p => Console.WriteLine(p.ToString() + ' ' + p.EmployeePerson.LenghtNameLastName));
 	}
+}
