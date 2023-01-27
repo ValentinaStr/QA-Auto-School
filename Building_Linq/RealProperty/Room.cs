@@ -1,4 +1,6 @@
-﻿namespace Building_Linq.RealProperty
+﻿using University.Candidates;
+
+namespace Building_Linq.RealProperty
 {
     public class Room
     {
@@ -15,5 +17,9 @@
             if (obj == null) return false;
             return obj is Room room && room != null && room.NumberRoom == NumberRoom;
         }
-    }
+		public override int GetHashCode()
+		{
+			return NumberRoom.GetHashCode();
+		}
+	}
 }

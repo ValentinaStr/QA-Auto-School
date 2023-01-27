@@ -1,4 +1,6 @@
-﻿namespace Building_Linq.RealProperty
+﻿using University.Candidates;
+
+namespace Building_Linq.RealProperty
 {
     public class Building
     {
@@ -22,7 +24,13 @@
                 && building.AddressBulding.Street.Equals(AddressBulding.Street)
                 && building.AddressBulding.HouseNumber.Equals(AddressBulding.HouseNumber);
         }
-        public bool AddRoom(Room roomToAdd)
+
+		public override int GetHashCode()
+		{
+			return AddressBulding.GetHashCode();
+		}
+
+		public bool AddRoom(Room roomToAdd)
         {
             if (Rooms.Contains(roomToAdd))
             {
