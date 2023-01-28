@@ -11,100 +11,100 @@ internal class Program
 		var theMainBuilding = new Building(
 			1,
 			"Main building",
-			new () { 
-				new (1, "Rector's office"),
-				new (2, "Admissions team"),
-				new (3, "Library"),
-				new (4, "Great Hall")
+			new() { 
+				new(1, "Rector's office"),
+				new(2, "Admissions team"),
+				new(3, "Library"),
+				new(4, "Great Hall")
 				},
-			new ("Oxford", "St. Aldates", 22)
+			new("Oxford", "St. Aldates", 22)
 			);
 
 		var gryffindorTower = new Building(
 			2,
 			"Gryffindor Tower",
-			new () {
-				new (2, "Library"),
-				new (3, "Common Room"),
-				new (4, "Girls' bedroom"),
-				new (5, "Boys' bedroom")
+			new() {
+				new(2, "Library"),
+				new(3, "Common Room"),
+				new(4, "Girls' bedroom"),
+				new(5, "Boys' bedroom")
 				},
-			new ("Oxford", "St. Aldates", 23)
+			new("Oxford", "St. Aldates", 23)
 			);
 
 		var slytherinTower = new Building(
 			3,
 			"Slytherin dungeons",
-			new () {
-				new (2, "Library"),
-				new (3, "Common Room"),
-				new (4, "Girls' bedroom"),
-				new (5, "Boys' bedroom")
+			new() {
+				new(2, "Library"),
+				new(3, "Common Room"),
+				new(4, "Girls' bedroom"),
+				new(5, "Boys' bedroom")
 				},
-			new ("Oxford", "St. Aldates", 24)
+			new("Oxford", "St. Aldates", 24)
 			);
 
 		var ravenclawTower = new Building(
 			4,
 			"Ravenclaw Tower",
-			new () {
-				new (2, "Library"),
-				new (3, "Common Room"),
-				new (4, "Girls' bedroom"),
-				new (5, "Boys' bedroom")
+			new() {
+				new(2, "Library"),
+				new(3, "Common Room"),
+				new(4, "Girls' bedroom"),
+				new(5, "Boys' bedroom")
 				},
-			new ("Oxford", "St. Aldates", 25)
+			new("Oxford", "St. Aldates", 25)
 			);
 
 		var hufflepuffTower = new Building(
 			5,
 			"Hufflepuff barrel",
-			new () {
-				new (2, "Library"),
-				new (3, "Common Room"),
-				new (4, "Girls' bedroom"),
-				new (5, "Boys' bedroom")
+			new() {
+				new(2, "Library"),
+				new(3, "Common Room"),
+				new(4, "Girls' bedroom"),
+				new(5, "Boys' bedroom")
 				},
-			new ("Oxford", "St. Aldates", 26)
+			new("Oxford", "St. Aldates", 26)
 			);
 
-		var allBuilding = new List<Building>() {theMainBuilding };
+		var allBuilding = new List<Building>(){theMainBuilding };
 
 		var deanOfSlytherin = new Teacher(
-			new ("Severus", "Snape",
-				new ("London", "St. Aldates", 24, 1)),
+			new("Severus", "Snape",
+				new("London", "St. Aldates", 24, 1)),
 			124456789,
-			new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
+			new("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
 
 		var deanOfGryffindor = new DegreeTeacher(
-			new ("Minerva", "McGonagall",
-				new ("London", "St. Aldates", 23, 1)),
+			new("Minerva", "McGonagall",
+				new("London", "St. Aldates", 23, 1)),
 			114567891,
-			new ("Transfiguration", "Studies magical ways to transform one object into another"),
+			new("Transfiguration", "Studies magical ways to transform one object into another"),
 			"Doctor of Transfiguration",
 			"Professor");
 
 		var deanHufflepuff = new DegreeTeacher(
-			new ("Pomona", "Sprout",
-				new ("London", "St. Aldates", 26, 1)),
+			new("Pomona", "Sprout",
+				new("London", "St. Aldates", 26, 1)),
 			122456789,
-			new ("Herbology", "Study of various plants"),
+			new("Herbology", "Study of various plants"),
 			"Doktor of Herbology",
 			"Professor");
 
 		var deanRavenclaw = new DegreeTeacher(
-			new ("Filius", "Flitwick", 
-				new ("London", "St. Aldates", 25, 1)),
+			new("Filius", "Flitwick", 
+				new("London", "St. Aldates", 25, 1)),
 			102569877,
-			new ("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
+			new("Charms", "Learns various movements with a stick, while saying one or more words at the same time "),
 			"Doctor of Charms",
 			"Professor");
 
-		var allUniversityEmployees = new List<UniversityEmployee>() {deanOfSlytherin};
+		var allUniversityEmployees = new List<UniversityEmployee>(){deanOfSlytherin};
 
-		var rector = new Rector (
+		var rector = new Rector(
 			new("Albus", "Dumbledore",
-				new ("Oxford", "St. Aldates", 22, 22)),
+				new("Oxford", "St. Aldates", 22, 22)),
 			10000001);
 
 		var hogwarts = new OurUniversity(
@@ -196,10 +196,10 @@ internal class Program
 			$"{buildingWithMostRooms.AddressBulding.HouseNumber}");
 
 		var teacherGryffindor = new DegreeTeacher(
-			new ("Alastor", "Moody",
-				new ("London", "St. Aldates", 22, 10)),
+			new("Alastor", "Moody",
+				new("London", "St. Aldates", 22, 10)),
 			114557333,
-			new ("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
+			new("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"),
 			"Doctor of DADA",
 			"Professor");
 
@@ -221,10 +221,10 @@ internal class Program
 		try
 		{
 			new Teacher(
-			new ("Lucius", "Malfoy",
-				new ("Oxford", "Diagon Alley", 23, 22)),
+			new("Lucius", "Malfoy",
+				new("Oxford", "Diagon Alley", 23, 22)),
 			-123654,
-			new ("Death Eaters", "The seizure of power by purebred magicians,"));
+			new("Death Eaters", "The seizure of power by purebred magicians,"));
 		}
 		catch (ArgumentException ex)
 		{
@@ -240,7 +240,7 @@ internal class Program
 			var fleur = new Person(
 				"Fleur Isabellee",
 				"Delacour",
-				new ("Oxford", "Diagon Alley", 25, 28)); ;
+				new("Oxford", "Diagon Alley", 25, 28)); ;
 		}
 		catch (ArgumentException ex)
 		{
