@@ -211,8 +211,17 @@ internal class Program
 			.GroupBy(x => x.EmployeePerson.LastName)
 			.MaxBy(x => x.Count());
 
+
 		Console.WriteLine("Task 5.6");
-		Console.WriteLine($" The most popular LastName is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
+
+		if (lastNameMost?.Count() == 1)
+		{
+			Console.WriteLine("There is no most popular last name");
+		}
+		else
+		{
+			Console.WriteLine($" The most popular last name is {lastNameMost?.Key} in quantity {lastNameMost?.Count()}");
+		}
 
 		// Task 6.1 TaxId check.
 
