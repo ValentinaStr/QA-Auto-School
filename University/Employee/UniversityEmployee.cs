@@ -22,6 +22,16 @@ namespace University.Employee
 		}
 		public abstract string GetOfficialDuties();
 
+		public override bool Equals(object obj)
+		{
+			if (obj == null)
+			{ return false; }
+				
+			var employee = (UniversityEmployee)obj;
+
+			return TaxId == employee.TaxId;
+		}
+
 		public override string ToString()
 		{
 			return EmployeePerson.Name + " " +  EmployeePerson.LastName;

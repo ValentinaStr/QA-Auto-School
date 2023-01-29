@@ -115,6 +115,7 @@ internal class Program
 		hogwarts.AddEmployee(deanOfGryffindor);
 		hogwarts.AddEmployee(deanHufflepuff);
 		hogwarts.AddEmployee(deanRavenclaw);
+		hogwarts.AddEmployee(deanRavenclaw);
 
 		hogwarts.AddBuilding(slytherinTower);
 		hogwarts.AddBuilding(gryffindorTower);
