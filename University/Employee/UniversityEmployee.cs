@@ -1,4 +1,5 @@
-﻿using University.Candidates;
+﻿using System.Xml.Linq;
+using University.Candidates;
 
 namespace University.Employee
 {
@@ -24,13 +25,11 @@ namespace University.Employee
 
 		public override bool Equals(object? obj)
 		{
-			if (obj == null) return false;
-            return obj is UniversityEmployee employee && TaxId == employee.TaxId;
+			if (obj !=null && obj is UniversityEmployee employee) return TaxId == employee.TaxId;
+			return false;
 		}
-		public override int GetHashCode()
-		{
-			return TaxId.GetHashCode();
-		}
+		public override int GetHashCode() => TaxId.GetHashCode();
+				
 		public override string ToString()
 		{
 			return EmployeePerson.Name + " " +  EmployeePerson.LastName;
