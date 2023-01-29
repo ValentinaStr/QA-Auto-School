@@ -35,7 +35,7 @@
 		public Address Address 
         {
             get { return _address; }
-            set { _address = value ?? Address.NoAddress; }
+            set { _address = value ?? new Address(); }
         }
 
         public Person(string name, string lastname, Address address)
