@@ -13,7 +13,8 @@
 
 				if (LenghtNameLastName > MaxLenghtNameLastName)
 				{
-					throw new ArgumentException("Wrong lenght Name or Lastname");
+					throw new ArgumentOutOfRangeException(nameof(LenghtNameLastName),
+                        $"Length of First Name and Last Name must be less than {MaxLenghtNameLastName}");
 				}
             }
         }
@@ -25,9 +26,10 @@
 				_lastName = value ?? throw new ArgumentNullException("Lastname can not be Null");
                 
 				if (LenghtNameLastName > MaxLenghtNameLastName)
-				{					
-					throw new ArgumentException("Wrong lenght Name or Lastname");
-                }
+				{
+					throw new ArgumentOutOfRangeException(nameof(LenghtNameLastName),
+						$"Length of First Name and Last Name must be less than {MaxLenghtNameLastName}");
+				}
 			}
         }
         public int LenghtNameLastName => _lastName.Length + _name.Length;

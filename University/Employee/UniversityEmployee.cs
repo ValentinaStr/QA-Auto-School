@@ -11,7 +11,7 @@ namespace University.Employee
 			get { return _taxId; }
 			set
 			{
-				if (value < 0) throw new ArgumentException("Wrong TaxID");
+				if (value < 0) throw new ArgumentException("TaxID mast be positive number");
 				_taxId = value;
 			}
 		}
