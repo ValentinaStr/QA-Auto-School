@@ -2,10 +2,9 @@
 {
     public class Address
     {
-        
         private int _house;
         private int _flat;
-		public string City { get; set; }
+        public string City { get; set; }
         public string Street { get; set; }
         public int House
         {
@@ -30,7 +29,8 @@
             }
 
         }
-        public Address(string town = "", string street = "", int house = 0, int flat = 0)
+
+        public Address(string town, string street, int house, int flat)
         {
             City = town;
             Street = street;
