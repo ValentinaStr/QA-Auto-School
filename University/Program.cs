@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.Tracing;
-using University.Candidates;
+﻿using University.Candidates;
 using University.Employee;
 
 namespace University
@@ -90,13 +89,13 @@ namespace University
 			}
 			Console.WriteLine($"Max score of {subjectName} {maxScoreSubject} {candidateLastnameMaxScore}");
 
-			var deanOfSlytherin = new Teacher(
+			UniversityEmployee deanOfSlytherin = new Teacher(
 				new Person("Severus", "Snape",
 					new Address("London", "St. Aldates", 24, 1)),
 				124456789,
 				new Course("Defence against the Dark Arts", "A compulsory subject from the first year of study to the fifth"));
 
-			var deanOfGryffindor = new DegreeTeacher(
+			UniversityEmployee deanOfGryffindor = new DegreeTeacher(
 				new Person("Minerva", "McGonagall",
 					new Address("London", "St. Aldates", 23, 1)),
 				114567891,
@@ -104,7 +103,7 @@ namespace University
 				"Doctor of Transfiguration",
 				"Professor");
 
-			var deanHufflepuff = new DegreeTeacher(
+			UniversityEmployee deanHufflepuff = new DegreeTeacher(
 				new Person("Pomona", "Sprout",
 					new Address("London", "St. Aldates", 26, 1)),
 				122456789,
@@ -112,7 +111,7 @@ namespace University
 				"Doktor of Herbology",
 				"Professor");
 
-			var deanRavenclaw = new DegreeTeacher(
+			UniversityEmployee deanRavenclaw = new DegreeTeacher(
 				new Person("Filius", "Flitwick",
 					new Address("London", "St. Aldates", 25, 1)),
 				102569877,
@@ -128,7 +127,7 @@ namespace University
 				"Ghost of Slytherin");
 						
 			UniversityEmployee employee5 = new SupportStaff(
-			   new Person("Nicholas", "Porpington",
+			   new Person("Sir Nicholas", "Mimsy-Porpington",
 					new Address("Oxford", "St. Aldates", 23, 66)),
 			   654789,
 			   "Ghost",
