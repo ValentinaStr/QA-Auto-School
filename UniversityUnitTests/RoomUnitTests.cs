@@ -7,22 +7,21 @@ namespace UniversityUnitTests
 	public class RoomUnitTests
 	{
 		[TestMethod]
-		public void СompareRoomWithTheSameNumberNegative()
+		public void СompareRoomWithTheSameNumberPositive()
 		{
-			var resaltroom1 = new Room(3,"Room name");
-			var resaltroom2 = new Room(3, "Room name");
+			var resultRoom1 = new Room(5, "Room name");
+			var resultRoom2 = new Room(3, "Room name");
 
-			Assert.IsTrue(resaltroom1.Equals(resaltroom2));
+			Assert.IsFalse(resultRoom1.Equals(resultRoom2));
 		}
 
 		[TestMethod]
-		public void ССompareRoomWithTheSameNumberPositive()
+		public void СompareRoomWithTheSameNumberNegative()
 		{
-			var resaltroom1 = new Room(5, "Room name");
-			var resaltroom2 = new Room(3, "Room name");
+			var resultRoom1 = new Room(3, "Room name");
+			var resultRoom2 = new Room(3, "Room name");
 
-			Assert.IsFalse(resaltroom1.Equals(resaltroom2));
+			Assert.IsTrue(resultRoom1.Equals(resultRoom2));
 		}
-
 	}
 }

@@ -9,47 +9,47 @@ namespace UniversityUnitTests
 		public void CreatePersonWithEmptyAddressPositive()
 		{
 			Address addressDefault = new();
-			Person resaltAddress = new("abc", "dfj", null);
+			Person resultAddress = new("abc", "dfj", null);
 
-			Assert.AreEqual(resaltAddress.Address.City, addressDefault.City);
-			Assert.AreEqual(resaltAddress.Address.Street, addressDefault.Street);
-			Assert.AreEqual(resaltAddress.Address.House, addressDefault.House);
-			Assert.AreEqual(resaltAddress.Address.Flat, addressDefault.Flat);
+			Assert.AreEqual(resultAddress.Address.City, addressDefault.City);
+			Assert.AreEqual(resultAddress.Address.Street, addressDefault.Street);
+			Assert.AreEqual(resultAddress.Address.House, addressDefault.House);
+			Assert.AreEqual(resultAddress.Address.Flat, addressDefault.Flat);
 		}
 
 		[TestMethod]
 		public void SumNameLastNamePositive()
 		{
-			Person resaltLenght = new("abc", "dfj", new());
-			Assert.AreEqual(6, resaltLenght.LenghtNameLastName);
+			Person resultLenght = new("abc", "dfj", new());
+			Assert.AreEqual(6, resultLenght.LenghtNameLastName);
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void NameIsNullNegative() 
 		{
-			Person resaltName = new(null, "LastName", new());
+			Person resultName = new(null, "LastName", new());
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void LastNameIstNullNegative()
 		{
-			Person resaltLastName = new("Name", null, new());
+			Person resultLastName = new("Name", null, new());
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void LenghtNameLastName_WithLongNameNegative() 
 		{
-			Person resaltLenght = new("123456789_1234567890_1", "", new());
+			Person resultLenght = new("123456789_1234567890_1", "", new());
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		public void LenghtNameLastName_WithLongLastNameNegative()
 		{
-			Person resaltLenght = new("", "123456789_123456789_1", new());
+			Person resultLenght = new("", "123456789_123456789_1", new());
 		}
 	}
 }

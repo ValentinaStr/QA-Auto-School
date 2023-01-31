@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Building_Linq.RealProperty;
+﻿using Building_Linq.RealProperty;
 using University.Employee;
 using Building_Linq;
 
@@ -11,12 +10,12 @@ namespace UniversityUnitTests
 		[TestMethod]
 		public void AddNewEmployeePositive()
 		{
-			var resaltEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
-			var resaltStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
+			var resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
+			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
 
 			var university = new OurUniversity(new (new("", "",new("", "", 22, 22)),10), new() { }, new() { });
-			university.AddEmployee(resaltEmployee);
-			university.AddEmployee(resaltStaff);
+			university.AddEmployee(resultEmployee);
+			university.AddEmployee(resultStaff);
 
 			Assert.AreEqual(2,university.AllUniversityEmployees.Count);
 		}
@@ -24,13 +23,13 @@ namespace UniversityUnitTests
 		[TestMethod]
 		public void AddTheSameEmployeeNegative()
 		{
-			var resaltEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
-			var resaltStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
+			var resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
+			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
 
-			var university = new OurUniversity(new(new("", "", new("", "", 22, 22)), 10), new() {resaltEmployee, resaltStaff }, new() { });
+			var university = new OurUniversity(new(new("", "", new("", "", 22, 22)), 10), new() {resultEmployee, resultStaff }, new() { });
 			
-			university.AddEmployee(resaltEmployee);
-			university.AddEmployee(resaltStaff);
+			university.AddEmployee(resultEmployee);
+			university.AddEmployee(resultStaff);
 
 			Assert.AreEqual(2, university.AllUniversityEmployees.Count);
 		}
@@ -38,12 +37,12 @@ namespace UniversityUnitTests
 		[TestMethod]
 		public void AddNewBuildingPositive()
 		{
-			var resaltBuilding1 = new Building(23, "Main", new(), new("London", "sreet", 236));
-			var resaltBuilding2 = new Building(28, "Main", new(), new("London", "sreet", 235));
+			var resultBuilding1 = new Building(23, "Main", new(), new("London", "sreet", 236));
+			var resultBuilding2 = new Building(28, "Main", new(), new("London", "sreet", 235));
 
 			var university = new OurUniversity(new(new("", "", new("", "", 22, 22)), 10), new() { }, new() { });
-			university.AddBuilding(resaltBuilding1);
-			university.AddBuilding(resaltBuilding2);
+			university.AddBuilding(resultBuilding1);
+			university.AddBuilding(resultBuilding2);
 
 			Assert.AreEqual(2, university.Allbuildings.Count);
 		}
@@ -51,11 +50,10 @@ namespace UniversityUnitTests
 		[TestMethod]
 		public void AddTheSameBuildingNegative()
 		{
-			var resaltBuilding1 = new Building(23, "Main", new(), new("London", "sreet", 236));
-			
-			var university = new OurUniversity(new(new("", "", new("", "", 22, 22)), 10), new() {}, new() {resaltBuilding1});
+			var resultBuilding1 = new Building(23, "Main", new(), new("London", "sreet", 236));
+			var university = new OurUniversity(new(new("", "", new("", "", 22, 22)), 10), new() {}, new() {resultBuilding1});
 
-			university.AddBuilding(resaltBuilding1);
+			university.AddBuilding(resultBuilding1);
 
 			Assert.AreEqual(1, university.Allbuildings.Count);
 		}

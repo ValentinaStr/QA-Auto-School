@@ -2,9 +2,14 @@
 { 
 	public class Person
     {
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public Address Address { get; set; }
+        public const int MaxLenghtNameLastName = 20;
+        private string _name = "";
+        private string _lastName = "";
+        private Address _address;
+        public string Name{get { return _name;}
+            set
+            {
+                _name = value ?? throw new ArgumentNullException("Name can not be Null");
 
 				if (LenghtNameLastName > MaxLenghtNameLastName)
 				{

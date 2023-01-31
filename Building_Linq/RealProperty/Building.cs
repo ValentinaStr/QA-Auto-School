@@ -22,7 +22,15 @@
                 && building.AddressBulding.Street.Equals(AddressBulding.Street)
                 && building.AddressBulding.HouseNumber.Equals(AddressBulding.HouseNumber);
         }
-        public bool AddRoom(Room roomToAdd)
+
+		public override int GetHashCode()
+		{
+			return AddressBulding.City.GetHashCode() 
+                + AddressBulding.Street.GetHashCode() 
+                + AddressBulding.HouseNumber.GetHashCode();
+		}
+
+		public bool AddRoom(Room roomToAdd)
         {
             if (Rooms.Contains(roomToAdd))
             {
