@@ -42,10 +42,9 @@
 
         public Person(string name, string lastname, Address address)
         {
-            Name = name;
+           	Name = name;
             LastName = lastname;
             Address = address;
         }
-
-    }
+	}
 }

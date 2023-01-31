@@ -1,8 +1,8 @@
 ﻿using University.Employee;
 using University.Candidates;
-using Building_LINQ.RealProperty;
+using Building_Linq.RealProperty;
 
-namespace Building_LINQ
+namespace Building_Linq
 {
     public class OurUniversity
 	{
@@ -17,21 +17,21 @@ namespace Building_LINQ
 		}
 		public bool AddEmployee(UniversityEmployee employeeToAdd)
 		{
-			if (AllUniversityEmployees.Contains(employeeToAdd))
+			if (!AllUniversityEmployees.Contains(employeeToAdd))
 			{
 				return false;
 			}
-			AllUniversityEmployees.Add(employeeToAdd);
-			return true;
+				AllUniversityEmployees.Add(employeeToAdd);
+			}
 		}
-		public bool AddBuilding(Building buildingToAdd)
+		public void AddBuilding(Building buildingToAdd)
 		{
-			if (Allbuildings.Contains(buildingToAdd))
+			if (!Allbuildings.Contains(buildingToAdd))
 			{
 				return false;
 			}
-			Allbuildings.Add(buildingToAdd);
-			return true;
+				Allbuildings.Add(buildingToAdd);
+			}
 		}
 	}
 }
