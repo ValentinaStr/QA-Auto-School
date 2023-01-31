@@ -4,11 +4,11 @@ using Building_LINQ.RealProperty;
 
 namespace Building_LINQ
 {
-    internal class OurUniversity
+    public class OurUniversity
 	{
-		internal Rector Rector { get; set; }
-		internal List<UniversityEmployee> AllUniversityEmployees { get; set; }
-		internal List<Building> Allbuildings { get; set; }
+		public Rector Rector { get; set; }
+		public List<UniversityEmployee> AllUniversityEmployees { get; set; }
+		public List<Building> Allbuildings { get; set; }
 		public OurUniversity(Rector rector, List<UniversityEmployee> allUniversityEmployees, List<Building> allbuildings)
 		{
 			Rector = rector;
