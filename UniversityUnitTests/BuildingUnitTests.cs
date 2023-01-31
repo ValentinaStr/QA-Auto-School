@@ -12,6 +12,7 @@ namespace UniversityUnitTests
 			var resultBuilding2 = new Building(23, "Main", new(), new("London", "sreet", 236));
 
 			Assert.IsFalse(resultBuilding1.Equals(resultBuilding2));
+			Assert.AreNotEqual(resultBuilding1.GetHashCode(), resultBuilding2.GetHashCode());
 		}
 
 		[TestMethod]
@@ -21,6 +22,7 @@ namespace UniversityUnitTests
 			var resultBuilding2 = new Building(23, "Main", new(), new("London", "sreet2", 236));
 
 			Assert.IsFalse(resultBuilding1.Equals(resultBuilding2));
+			Assert.AreNotEqual(resultBuilding1.GetHashCode(), resultBuilding2.GetHashCode());
 		}
 
 		[TestMethod]
@@ -30,6 +32,7 @@ namespace UniversityUnitTests
 			var resultBuilding2 = new Building(23, "Main", new(), new("London", "sreet", 236));
 
 			Assert.IsFalse(resultBuilding1.Equals(resultBuilding2));
+			Assert.AreNotEqual(resultBuilding1.GetHashCode(), resultBuilding2.GetHashCode());
 		}
 
 		[TestMethod]

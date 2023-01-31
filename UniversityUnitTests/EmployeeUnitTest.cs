@@ -54,6 +54,7 @@ namespace UniversityUnitTests
 			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties"); 
 			
 			Assert.IsTrue(resultEmployee.Equals(resultStaff));
+			Assert.AreEqual(resultEmployee.GetHashCode(), resultStaff.GetHashCode());
 		}
 
 		[TestMethod]
@@ -63,6 +64,7 @@ namespace UniversityUnitTests
 			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
 
 			Assert.IsFalse(resultEmployee.Equals(resultStaff));
+			Assert.AreNotEqual(resultEmployee.GetHashCode(), resultStaff.GetHashCode());
 		}
 
 		[TestMethod]
