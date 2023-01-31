@@ -1,5 +1,4 @@
 ﻿using University.Employee;
-using University.Candidates;
 using Building_Linq.RealProperty;
 
 namespace Building_Linq
@@ -15,12 +14,10 @@ namespace Building_Linq
 			AllUniversityEmployees = allUniversityEmployees;
 			Allbuildings = allbuildings;
 		}
-		public bool AddEmployee(UniversityEmployee employeeToAdd)
+		public void AddEmployee(UniversityEmployee employeeToAdd)
 		{
 			if (!AllUniversityEmployees.Contains(employeeToAdd))
 			{
-				return false;
-			}
 				AllUniversityEmployees.Add(employeeToAdd);
 			}
 		}
@@ -28,8 +25,6 @@ namespace Building_Linq
 		{
 			if (!Allbuildings.Contains(buildingToAdd))
 			{
-				return false;
-			}
 				Allbuildings.Add(buildingToAdd);
 			}
 		}
