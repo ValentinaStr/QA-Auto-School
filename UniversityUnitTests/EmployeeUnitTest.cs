@@ -48,7 +48,7 @@ namespace UniversityUnitTests
 		}
 
 		[TestMethod]
-		public void СompareEmployeeWithTheSameTaxIdNegative()
+		public void EmployeeWithTheSameTaxIdNegative()
 		{
 			var resultEmployee = new Teacher(new("Name", "LastName", new()), 3333, new("coures name", "course description"));
 			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties"); 
@@ -58,7 +58,7 @@ namespace UniversityUnitTests
 		}
 
 		[TestMethod]
-		public void СompareEmployeeWithDifferentTaxIdPositive()
+		public void EmployeeWithDifferentTaxIdPositive()
 		{
 			var resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
 			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
@@ -68,21 +68,30 @@ namespace UniversityUnitTests
 		}
 
 		[TestMethod]
-		public void CompareLenghtNameLastNameEmployeePositive()
+		public void LenghtNameLastNameEmployeePositive()
 		{
 			UniversityEmployee resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
 			UniversityEmployee resultStaff = new SupportStaff(new("Name", "LastNamee", new()), 3333, "name", "duties");
 
-			Assert.AreEqual(1, resultEmployee.CompareTo(resultStaff));
+			Assert.IsTrue(resultEmployee.CompareTo(resultStaff) > 0);
 		}
 
 		[TestMethod]
-		public void CompareLenghtNameLastNameEmployeeWithZeroValue()
+		public void LenghtNameLastNameEmployeeWithZeroValue()
 		{
 			UniversityEmployee resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
 			UniversityEmployee resultStaff = null;
 
-			Assert.AreEqual(-1, resultEmployee.CompareTo(resultStaff));
+			Assert.IsTrue(resultEmployee.CompareTo(resultStaff) < 0);
 		}
+		[TestMethod]
+		public void LenghtNameLastNameEmployeeWitnSameLenghtPositive()
+		{
+			UniversityEmployee resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
+			UniversityEmployee resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
+
+			Assert.IsTrue(resultEmployee.CompareTo(resultStaff) == 0);
+		}
+
 	}
 }

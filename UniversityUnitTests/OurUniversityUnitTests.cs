@@ -13,11 +13,13 @@ namespace UniversityUnitTests
 			var resultEmployee = new Teacher(new("Name", "LastName", new()), 3, new("coures name", "course description"));
 			var resultStaff = new SupportStaff(new("Name", "LastName", new()), 3333, "name", "duties");
 
-			var university = new OurUniversity(new (new("", "",new("", "", 22, 22)),10), new() { }, new() { });
+			var university = new OurUniversity(new(new("", "", new("", "", 22, 22)), 10), new() { }, new() { });
 			university.AddEmployee(resultEmployee);
 			university.AddEmployee(resultStaff);
 
-			Assert.AreEqual(2,university.AllUniversityEmployees.Count);
+			Assert.AreEqual(2, university.AllUniversityEmployees.Count);
+			Assert.IsTrue(university.AllUniversityEmployees.Contains(resultEmployee));
+			Assert.IsTrue(university.AllUniversityEmployees.Contains(resultStaff));
 		}
 
 		[TestMethod]
