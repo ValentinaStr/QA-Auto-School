@@ -1,4 +1,4 @@
-﻿namespace Building_LINQ.RealProperty
+﻿namespace Building_Linq.RealProperty
 {
     public class AddressBulding
     {

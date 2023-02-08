@@ -1,37 +1,32 @@
 ﻿using University.Employee;
-using University.Candidates;
-using Building_LINQ.RealProperty;
+using Building_Linq.RealProperty;
 
-namespace Building_LINQ
+namespace Building_Linq
 {
-    internal class OurUniversity
+    public class OurUniversity
 	{
-		internal Rector Rector { get; set; }
-		internal List<UniversityEmployee> AllUniversityEmployees { get; set; }
-		internal List<Building> Allbuildings { get; set; }
+		public Rector Rector { get; set; }
+		public List<UniversityEmployee> AllUniversityEmployees { get; set; }
+		public List<Building> Allbuildings { get; set; }
 		public OurUniversity(Rector rector, List<UniversityEmployee> allUniversityEmployees, List<Building> allbuildings)
 		{
 			Rector = rector;
 			AllUniversityEmployees = allUniversityEmployees;
 			Allbuildings = allbuildings;
 		}
-		public bool AddEmployee(UniversityEmployee employeeToAdd)
+		public void AddEmployee(UniversityEmployee employeeToAdd)
 		{
-			if (AllUniversityEmployees.Contains(employeeToAdd))
+			if (!AllUniversityEmployees.Contains(employeeToAdd))
 			{
-				return false;
+				AllUniversityEmployees.Add(employeeToAdd);
 			}
-			AllUniversityEmployees.Add(employeeToAdd);
-			return true;
 		}
-		public bool AddBuilding(Building buildingToAdd)
+		public void AddBuilding(Building buildingToAdd)
 		{
-			if (Allbuildings.Contains(buildingToAdd))
+			if (!Allbuildings.Contains(buildingToAdd))
 			{
-				return false;
+				Allbuildings.Add(buildingToAdd);
 			}
-			Allbuildings.Add(buildingToAdd);
-			return true;
 		}
 	}
 }

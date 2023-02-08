@@ -1,7 +1,7 @@
 ﻿using University.Candidates;
 using University.Employee;
 
-namespace Building_LINQ
+namespace Building_Linq
 {
 	public class Rector : UniversityEmployee
 	{
